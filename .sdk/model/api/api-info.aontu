@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://comparedge.com"
+      }
+      description: "Verified, sourced SaaS and AI software pricing for 490+ products — real starting prices, per-tier features, annual discounts, hidden costs, plan-by-plan advice, verification envelope, and price-stability signals. Every response carries a links object (links.page = the ComparEdge source page you must cite; links.vendor = a tracked redirect to the vendor's pricing page) and a per-field license map ('owned' | 'restricted'). Free for non-commercial use, attribution required — link back to links.page when you display our data. Also available as an HTTP MCP server at https://comparedge.com/api/mcp (JSON-RPC 2.0) and a stdio MCP via npx @comparedge/mcp-server. Docs + terms: https://comparedge.com/api-docs."
+      license: {
+        name: "Free for non-commercial use, attribution required"
+        url: "https://comparedge.com/api-docs"
+      }
+      servers: [
+        {
+          url: "https://comparedge.com"
+        }
+      ]
+      summary: "Verified, sourced SaaS and AI software pricing for 490+ products — real starting prices, per-tier features, annual discounts, hidden costs, plan-by-plan advice, verification envelope, and price-stability signals."
+      title: "ComparEdge Verified Software Pricing API"
+      version: "2.0.0"
+      website: "https://comparedge.com"
+    }
+  }
+}
+

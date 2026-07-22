@@ -1,0 +1,28 @@
+# BasicDiscoverFlow
+
+main: kit: flow: BasicDiscoverFlow:
+{
+  entity: "discover",
+  kind: "basic",
+  name: "BasicDiscoverFlow",
+  step: [
+    {
+      input: {
+        ref: "discover_ref01",
+        srcdatavar: "discover_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-discover_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDiscoverFlow"
+}

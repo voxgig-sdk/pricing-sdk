@@ -1,0 +1,28 @@
+# BasicPricingFlow
+
+main: kit: flow: BasicPricingFlow:
+{
+  entity: "pricing",
+  kind: "basic",
+  name: "BasicPricingFlow",
+  step: [
+    {
+      input: {
+        ref: "pricing_ref01",
+        srcdatavar: "pricing_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pricing_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPricingFlow"
+}

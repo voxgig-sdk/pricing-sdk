@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "mcp": {
+      "MCP00": {
+        "id": "MCP00"
+      },
+      "MCP01": {
+        "id": "MCP01"
+      },
+      "MCP02": {
+        "id": "MCP02"
+      }
+    }
+  },
+  "new": {
+    "mcp": {
+      "mcp_ref01": {}
+    }
+  }
+}

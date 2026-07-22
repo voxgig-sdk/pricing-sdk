@@ -1,0 +1,32 @@
+# BasicCostGuideFlow
+
+main: kit: flow: BasicCostGuideFlow:
+{
+  entity: "cost_guide",
+  kind: "basic",
+  name: "BasicCostGuideFlow",
+  step: [
+    {
+      input: {
+        ref: "cost_guide_ref01",
+        srcdatavar: "cost_guide_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "cost_guide01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-cost_guide_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCostGuideFlow"
+}

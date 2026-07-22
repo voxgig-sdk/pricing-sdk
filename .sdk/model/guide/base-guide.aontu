@@ -1,0 +1,69 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 9
+  metrics: count: path: 10
+  metrics: count: method: 10
+
+  entity: compare: {
+    path: "/api/v2/compare": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: cost_guide: {
+    path: "/api/v2/cost-guide/{slug}": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: coverage: {
+    path: "/api/v2/coverage": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: discover: {
+    path: "/api/v2/discover": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: history: {
+    path: "/api/v2/history/{slug}": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: mcp: {
+    path: "/api/mcp": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: pricing: {
+    path: "/api/v2/pricing": {
+      op: load: method: *GET
+    }
+    path: "/api/v2/pricing/{slug}": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: tco: {
+    path: "/api/v2/tco": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: usage: {
+    path: "/api/v2/usage/{slug}": {
+      rename: param: "slug": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

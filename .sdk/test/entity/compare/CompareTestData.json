@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "compare": {
+      "COMPARE00": {
+        "id": "COMPARE00"
+      },
+      "COMPARE01": {
+        "id": "COMPARE01"
+      },
+      "COMPARE02": {
+        "id": "COMPARE02"
+      }
+    }
+  },
+  "new": {
+    "compare": {
+      "compare_ref01": {}
+    }
+  }
+}

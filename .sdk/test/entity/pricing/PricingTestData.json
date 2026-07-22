@@ -1,0 +1,81 @@
+{
+  "existing": {
+    "pricing": {
+      "PRICING00": {
+        "attribution": "s96",
+        "category": "s97",
+        "discount": {},
+        "hidden_cost": [],
+        "license": {},
+        "link": {},
+        "name": "s9c",
+        "positioning": {},
+        "price_range": {},
+        "schema_version": "s9f",
+        "slug": "sa0",
+        "source": "sa1",
+        "tier": [],
+        "verdict": "sa3",
+        "verification": {},
+        "id": "PRICING00"
+      },
+      "PRICING01": {
+        "attribution": "s12c",
+        "category": "s12d",
+        "discount": {},
+        "hidden_cost": [],
+        "license": {},
+        "link": {},
+        "name": "s132",
+        "positioning": {},
+        "price_range": {},
+        "schema_version": "s135",
+        "slug": "s136",
+        "source": "s137",
+        "tier": [],
+        "verdict": "s139",
+        "verification": {},
+        "id": "PRICING01"
+      },
+      "PRICING02": {
+        "attribution": "s1c2",
+        "category": "s1c3",
+        "discount": {},
+        "hidden_cost": [],
+        "license": {},
+        "link": {},
+        "name": "s1c8",
+        "positioning": {},
+        "price_range": {},
+        "schema_version": "s1cb",
+        "slug": "s1cc",
+        "source": "s1cd",
+        "tier": [],
+        "verdict": "s1cf",
+        "verification": {},
+        "id": "PRICING02"
+      }
+    }
+  },
+  "new": {
+    "pricing": {
+      "pricing_ref01": {
+        "attribution": "s258",
+        "category": "s259",
+        "discount": {},
+        "hidden_cost": [],
+        "license": {},
+        "link": {},
+        "name": "s25e",
+        "positioning": {},
+        "price_range": {},
+        "schema_version": "s261",
+        "slug": "s262",
+        "source": "s263",
+        "tier": [],
+        "verdict": "s265",
+        "verification": {}
+      }
+    }
+  }
+}

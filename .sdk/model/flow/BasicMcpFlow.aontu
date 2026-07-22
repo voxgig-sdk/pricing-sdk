@@ -1,0 +1,18 @@
+# BasicMcpFlow
+
+main: kit: flow: BasicMcpFlow:
+{
+  entity: "mcp",
+  kind: "basic",
+  name: "BasicMcpFlow",
+  step: [
+    {
+      input: {
+        ref: "mcp_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicMcpFlow"
+}

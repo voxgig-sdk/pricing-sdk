@@ -1,0 +1,18 @@
+# BasicTcoFlow
+
+main: kit: flow: BasicTcoFlow:
+{
+  entity: "tco",
+  kind: "basic",
+  name: "BasicTcoFlow",
+  step: [
+    {
+      input: {
+        ref: "tco_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicTcoFlow"
+}

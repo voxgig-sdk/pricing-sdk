@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "cost_guide": {
+      "COST_GUIDE00": {
+        "id": "COST_GUIDE00"
+      },
+      "COST_GUIDE01": {
+        "id": "COST_GUIDE01"
+      },
+      "COST_GUIDE02": {
+        "id": "COST_GUIDE02"
+      }
+    }
+  },
+  "new": {
+    "cost_guide": {
+      "cost_guide_ref01": {}
+    }
+  }
+}

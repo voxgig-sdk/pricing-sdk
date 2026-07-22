@@ -1,0 +1,54 @@
+# Entity: tco
+
+main: kit: entity: tco: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "billing"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "seat"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "slug"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "tier"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "tco"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/v2/tco"
+          parts: [
+            "api"
+            "v2"
+            "tco"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

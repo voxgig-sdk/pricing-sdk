@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "discover": {
+      "DISCOVER00": {
+        "id": "DISCOVER00"
+      },
+      "DISCOVER01": {
+        "id": "DISCOVER01"
+      },
+      "DISCOVER02": {
+        "id": "DISCOVER02"
+      }
+    }
+  },
+  "new": {
+    "discover": {
+      "discover_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Entity: mcp
+
+main: kit: entity: mcp: {
+
+  alias: field: {}
+
+  name: "mcp"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/mcp"
+          parts: [
+            "api"
+            "mcp"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
