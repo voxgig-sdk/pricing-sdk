@@ -35,17 +35,17 @@
 ---@class Pricing
 ---@field attribution string
 ---@field category? string
----@field discount? table
----@field hidden_cost? table
+---@field discounts? table
+---@field hiddenCosts? table
 ---@field license table
----@field link table
+---@field links table
 ---@field name? string
 ---@field positioning? table
----@field price_range? table
----@field schema_version? string
+---@field priceRange? table
+---@field schemaVersion? string
 ---@field slug? string
 ---@field source? string
----@field tier? table
+---@field tiers? table
 ---@field verdict? string
 ---@field verification? table
 
@@ -54,13 +54,13 @@
 
 ---@class Tco
 ---@field billing? string
----@field seat? number
+---@field seats? number
 ---@field slug string
 ---@field tier? string
 
 ---@class TcoCreateData
 ---@field billing? string
----@field seat? number
+---@field seats? number
 ---@field slug string
 ---@field tier? string
 

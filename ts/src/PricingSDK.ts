@@ -154,8 +154,29 @@ class PricingSDK {
   }
 
 
+  // Raw endpoint access is operator-controllable, like every entity op.
+  // Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+  // either one reaches the same endpoint.
   async direct(fetchargs?: any) {
+    if (!this._options.allow.op.includes('direct')) {
+      return {
+        ok: false,
+        err: new Error('PricingSDK: direct: operation not allowed by' +
+          ' SDK option allow.op value: "' + this._options.allow.op + '"'),
+      }
+    }
+
+    return this._rawRequest(fetchargs)
+  }
+
+
+  // Ungated request path shared by direct() and graphql(), each of which
+  // checks its own allow.op token first. Private, rather than a flag on
+  // fetchargs: a caller-supplied marker would let anyone opt straight back
+  // out of the gate by passing it.
+  async _rawRequest(fetchargs?: any) {
     const utility = this._utility
+
     const fetcher = utility.fetcher
     const makeContext = utility.makeContext
 
@@ -216,66 +237,138 @@ class PricingSDK {
 
 
 
+  // Raw GraphQL access: the pressure valve that makes the generated
+  // surface's deliberate omissions (per-call selection sets, typed filter
+  // builders, batching, subscriptions) livable — the whole schema stays
+  // reachable.
+  //
+  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
+  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
+  // HTTP 200 as a top-level `errors` array, so status alone would report a
+  // failed query as ok.
+  //
+  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
+  // ratelimit or paging features apply.
+  async graphql(query: string, variables?: any, ctrl?: any) {
+    const options = this._options
+
+    if (!options.allow.op.includes('graphql')) {
+      return {
+        ok: false,
+        err: new Error('PricingSDK: graphql: operation not allowed by' +
+          ' SDK option allow.op value: "' + options.allow.op + '"'),
+      }
+    }
+
+    const res: any = await this._rawRequest({
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: { query, variables: variables || {} },
+      ctrl,
+    })
+
+    if (res instanceof Error) {
+      return res
+    }
+
+    // Errors are read BEFORE any status check: a GraphQL parse or validation
+    // failure comes back as HTTP 400 carrying the standard { errors: [...] }
+    // body, and the raw path represents a non-2xx as { ok: false } with no
+    // err — so returning early on status would discard the server's own
+    // diagnostics, which are the only useful part of that response.
+    const errors = null == res.data ? undefined : res.data.errors
+
+    if (null != errors && Array.isArray(errors) && 0 < errors.length) {
+      const first = errors[0] || {}
+      const err: any = new Error('PricingSDK: graphql: ' +
+        (first.message || 'graphql error'))
+      err.graphql = errors
+      return { ok: false, status: res.status, headers: res.headers, err, data: res.data }
+    }
+
+    return res
+  }
+
+
+
   // Entity access: `client.Compare().list()` / `client.Compare().load({ id })`.
-  Compare(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Compare(entopts?: Record<string, any>) {
     const self = this
-    return new CompareEntity(self,data)
+    return new CompareEntity(self, entopts)
   }
 
 
   // Entity access: `client.CostGuide().list()` / `client.CostGuide().load({ id })`.
-  CostGuide(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  CostGuide(entopts?: Record<string, any>) {
     const self = this
-    return new CostGuideEntity(self,data)
+    return new CostGuideEntity(self, entopts)
   }
 
 
   // Entity access: `client.Coverage().list()` / `client.Coverage().load({ id })`.
-  Coverage(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Coverage(entopts?: Record<string, any>) {
     const self = this
-    return new CoverageEntity(self,data)
+    return new CoverageEntity(self, entopts)
   }
 
 
   // Entity access: `client.Discover().list()` / `client.Discover().load({ id })`.
-  Discover(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Discover(entopts?: Record<string, any>) {
     const self = this
-    return new DiscoverEntity(self,data)
+    return new DiscoverEntity(self, entopts)
   }
 
 
   // Entity access: `client.History().list()` / `client.History().load({ id })`.
-  History(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  History(entopts?: Record<string, any>) {
     const self = this
-    return new HistoryEntity(self,data)
+    return new HistoryEntity(self, entopts)
   }
 
 
   // Entity access: `client.Mcp().list()` / `client.Mcp().load({ id })`.
-  Mcp(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Mcp(entopts?: Record<string, any>) {
     const self = this
-    return new McpEntity(self,data)
+    return new McpEntity(self, entopts)
   }
 
 
   // Entity access: `client.Pricing().list()` / `client.Pricing().load({ id })`.
-  Pricing(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Pricing(entopts?: Record<string, any>) {
     const self = this
-    return new PricingEntity(self,data)
+    return new PricingEntity(self, entopts)
   }
 
 
   // Entity access: `client.Tco().list()` / `client.Tco().load({ id })`.
-  Tco(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Tco(entopts?: Record<string, any>) {
     const self = this
-    return new TcoEntity(self,data)
+    return new TcoEntity(self, entopts)
   }
 
 
   // Entity access: `client.Usage().list()` / `client.Usage().load({ id })`.
-  Usage(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Usage(entopts?: Record<string, any>) {
     const self = this
-    return new UsageEntity(self,data)
+    return new UsageEntity(self, entopts)
   }
 
 

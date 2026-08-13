@@ -62,7 +62,7 @@ describe('CompareEntity', async () => {
     // LOAD
     const compare_ref01_ent = client.Compare()
     const compare_ref01_match_dt0: any = {}
-    const compare_ref01_data_dt0 = await compare_ref01_ent.load(compare_ref01_match_dt0)
+    const compare_ref01_data_dt0 = (await compare_ref01_ent.load(compare_ref01_match_dt0)).data()
     assert(null != compare_ref01_data_dt0)
 
 

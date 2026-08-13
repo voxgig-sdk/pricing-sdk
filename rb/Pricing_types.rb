@@ -74,16 +74,16 @@ end
 # @!attribute [rw] category
 #   @return [String, nil]
 #
-# @!attribute [rw] discount
+# @!attribute [rw] discounts
 #   @return [Hash, nil]
 #
-# @!attribute [rw] hidden_cost
+# @!attribute [rw] hiddenCosts
 #   @return [Array, nil]
 #
 # @!attribute [rw] license
 #   @return [Hash]
 #
-# @!attribute [rw] link
+# @!attribute [rw] links
 #   @return [Hash]
 #
 # @!attribute [rw] name
@@ -92,10 +92,10 @@ end
 # @!attribute [rw] positioning
 #   @return [Hash, nil]
 #
-# @!attribute [rw] price_range
+# @!attribute [rw] priceRange
 #   @return [Hash, nil]
 #
-# @!attribute [rw] schema_version
+# @!attribute [rw] schemaVersion
 #   @return [String, nil]
 #
 # @!attribute [rw] slug
@@ -104,7 +104,7 @@ end
 # @!attribute [rw] source
 #   @return [String, nil]
 #
-# @!attribute [rw] tier
+# @!attribute [rw] tiers
 #   @return [Array, nil]
 #
 # @!attribute [rw] verdict
@@ -115,17 +115,17 @@ end
 Pricing = Struct.new(
   :attribution,
   :category,
-  :discount,
-  :hidden_cost,
+  :discounts,
+  :hiddenCosts,
   :license,
-  :link,
+  :links,
   :name,
   :positioning,
-  :price_range,
-  :schema_version,
+  :priceRange,
+  :schemaVersion,
   :slug,
   :source,
-  :tier,
+  :tiers,
   :verdict,
   :verification,
   keyword_init: true
@@ -145,7 +145,7 @@ PricingLoadMatch = Struct.new(
 # @!attribute [rw] billing
 #   @return [String, nil]
 #
-# @!attribute [rw] seat
+# @!attribute [rw] seats
 #   @return [Integer, nil]
 #
 # @!attribute [rw] slug
@@ -155,7 +155,7 @@ PricingLoadMatch = Struct.new(
 #   @return [String, nil]
 Tco = Struct.new(
   :billing,
-  :seat,
+  :seats,
   :slug,
   :tier,
   keyword_init: true
@@ -166,7 +166,7 @@ Tco = Struct.new(
 # @!attribute [rw] billing
 #   @return [String, nil]
 #
-# @!attribute [rw] seat
+# @!attribute [rw] seats
 #   @return [Integer, nil]
 #
 # @!attribute [rw] slug
@@ -176,7 +176,7 @@ Tco = Struct.new(
 #   @return [String, nil]
 TcoCreateData = Struct.new(
   :billing,
-  :seat,
+  :seats,
   :slug,
   :tier,
   keyword_init: true

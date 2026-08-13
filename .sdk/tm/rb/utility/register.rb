@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ PricingUtility.registrar = ->(u) {
   u.prepare_params = PricingUtilities::PrepareParams
   u.prepare_path = PricingUtilities::PreparePath
   u.prepare_query = PricingUtilities::PrepareQuery
+  u.graphql_body = PricingUtilities::GraphqlBody
+  u.graphql_errors = PricingUtilities::GraphqlErrors
   u.result_basic = PricingUtilities::ResultBasic
   u.result_body = PricingUtilities::ResultBody
   u.result_headers = PricingUtilities::ResultHeaders

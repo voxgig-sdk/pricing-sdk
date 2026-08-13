@@ -41,7 +41,7 @@ describe("TcoEntity", function()
 
     local tco_ref01_data_result, err = tco_ref01_ent:create(tco_ref01_data, nil)
     assert.is_nil(err)
-    tco_ref01_data = helpers.to_map(tco_ref01_data_result)
+    tco_ref01_data = helpers.to_map(type(tco_ref01_data_result) == 'table' and tco_ref01_data_result.data_get and tco_ref01_data_result:data_get() or tco_ref01_data_result)
     assert.is_not_nil(tco_ref01_data)
 
   end)

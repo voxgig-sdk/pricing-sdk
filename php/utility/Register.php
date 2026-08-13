@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ PricingUtility::setRegistrar(function (PricingUtility $u): void {
     $u->prepare_params = [PricingPrepareParams::class, 'call'];
     $u->prepare_path = [PricingPreparePath::class, 'call'];
     $u->prepare_query = [PricingPrepareQuery::class, 'call'];
+    $u->graphql_body = [PricingGraphql::class, 'body'];
+    $u->graphql_errors = [PricingGraphql::class, 'errors'];
     $u->result_basic = [PricingResultBasic::class, 'call'];
     $u->result_body = [PricingResultBody::class, 'call'];
     $u->result_headers = [PricingResultHeaders::class, 'call'];

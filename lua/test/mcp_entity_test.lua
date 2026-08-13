@@ -41,7 +41,7 @@ describe("McpEntity", function()
 
     local mcp_ref01_data_result, err = mcp_ref01_ent:create(mcp_ref01_data, nil)
     assert.is_nil(err)
-    mcp_ref01_data = helpers.to_map(mcp_ref01_data_result)
+    mcp_ref01_data = helpers.to_map(type(mcp_ref01_data_result) == 'table' and mcp_ref01_data_result.data_get and mcp_ref01_data_result:data_get() or mcp_ref01_data_result)
     assert.is_not_nil(mcp_ref01_data)
 
   end)

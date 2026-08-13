@@ -290,17 +290,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `attribution` |  |
 | `category` |  |
-| `discount` |  |
-| `hidden_cost` |  |
+| `discounts` |  |
+| `hiddenCosts` |  |
 | `license` |  |
-| `link` |  |
+| `links` |  |
 | `name` |  |
 | `positioning` |  |
-| `price_range` |  |
-| `schema_version` |  |
+| `priceRange` |  |
+| `schemaVersion` |  |
 | `slug` |  |
 | `source` |  |
-| `tier` |  |
+| `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
 
@@ -313,7 +313,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `billing` |  |
-| `seat` |  |
+| `seats` |  |
 | `slug` |  |
 | `tier` |  |
 
@@ -454,17 +454,17 @@ Create an instance: `local pricing = client:Pricing(nil)`
 | --- | --- | --- |
 | `attribution` | `string` |  |
 | `category` | `string` |  |
-| `discount` | `table` |  |
-| `hidden_cost` | `table` |  |
+| `discounts` | `table` |  |
+| `hiddenCosts` | `table` |  |
 | `license` | `table` |  |
-| `link` | `table` |  |
+| `links` | `table` |  |
 | `name` | `string` |  |
 | `positioning` | `table` |  |
-| `price_range` | `table` |  |
-| `schema_version` | `string` |  |
+| `priceRange` | `table` |  |
+| `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
 | `source` | `string` |  |
-| `tier` | `table` |  |
+| `tiers` | `table` |  |
 | `verdict` | `string` |  |
 | `verification` | `table` |  |
 
@@ -490,7 +490,7 @@ Create an instance: `local tco = client:Tco(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `string` |  |
-| `seat` | `number` |  |
+| `seats` | `number` |  |
 | `slug` | `string` |  |
 | `tier` | `string` |  |
 

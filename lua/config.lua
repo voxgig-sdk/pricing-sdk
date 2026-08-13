@@ -53,6 +53,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/compare",
                 ["parts"] = {
@@ -103,6 +104,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/cost-guide/{slug}",
                 ["parts"] = {
@@ -167,6 +169,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/coverage",
                 ["parts"] = {
@@ -249,6 +252,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/discover",
                 ["parts"] = {
@@ -303,6 +307,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/history/{slug}",
                 ["parts"] = {
@@ -346,6 +351,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/api/mcp",
                 ["parts"] = {
@@ -385,14 +391,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "discount",
+            ["name"] = "discounts",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 2,
           },
           {
             ["active"] = true,
-            ["name"] = "hidden_cost",
+            ["name"] = "hiddenCosts",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 3,
@@ -406,7 +412,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "link",
+            ["name"] = "links",
             ["req"] = true,
             ["type"] = "`$OBJECT`",
             ["index$"] = 5,
@@ -427,14 +433,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "price_range",
+            ["name"] = "priceRange",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 8,
           },
           {
             ["active"] = true,
-            ["name"] = "schema_version",
+            ["name"] = "schemaVersion",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 9,
@@ -455,7 +461,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "tier",
+            ["name"] = "tiers",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 12,
@@ -516,6 +522,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/pricing/{slug}",
                 ["parts"] = {
@@ -565,6 +572,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/pricing",
                 ["parts"] = {
@@ -603,7 +611,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "seat",
+            ["name"] = "seats",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 1,
@@ -632,6 +640,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/api/v2/tco",
                 ["parts"] = {
@@ -704,6 +713,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/v2/usage/{slug}",
                 ["parts"] = {

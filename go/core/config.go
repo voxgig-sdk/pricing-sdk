@@ -53,6 +53,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/compare",
 								"parts": []any{
@@ -72,7 +73,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -103,6 +103,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/cost-guide/{slug}",
 								"parts": []any{
@@ -128,7 +129,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -167,6 +167,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/coverage",
 								"parts": []any{
@@ -187,7 +188,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -249,6 +249,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/discover",
 								"parts": []any{
@@ -272,7 +273,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -303,6 +303,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/history/{slug}",
 								"parts": []any{
@@ -328,7 +329,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -346,6 +346,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/api/mcp",
 								"parts": []any{
@@ -360,7 +361,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -385,14 +385,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "discount",
+						"name": "discounts",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "hidden_cost",
+						"name": "hiddenCosts",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 3,
@@ -406,7 +406,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "link",
+						"name": "links",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 5,
@@ -427,14 +427,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "price_range",
+						"name": "priceRange",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
-						"name": "schema_version",
+						"name": "schemaVersion",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
@@ -455,7 +455,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "tier",
+						"name": "tiers",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 12,
@@ -516,6 +516,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/pricing/{slug}",
 								"parts": []any{
@@ -565,6 +566,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/pricing",
 								"parts": []any{
@@ -585,7 +587,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -603,7 +604,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "seat",
+						"name": "seats",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 1,
@@ -632,6 +633,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/api/v2/tco",
 								"parts": []any{
@@ -647,7 +649,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{
@@ -704,6 +705,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/usage/{slug}",
 								"parts": []any{
@@ -732,7 +734,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

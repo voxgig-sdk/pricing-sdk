@@ -479,17 +479,17 @@ const pricing = client.Pricing()
 | --- | --- | --- | --- |
 | `attribution` | `string` | Yes |  |
 | `category` | `string` | No |  |
-| `discount` | `Record<string, any>` | No |  |
-| `hidden_cost` | `any[]` | No |  |
+| `discounts` | `Record<string, any>` | No |  |
+| `hiddenCosts` | `any[]` | No |  |
 | `license` | `Record<string, any>` | Yes |  |
-| `link` | `Record<string, any>` | Yes |  |
+| `links` | `Record<string, any>` | Yes |  |
 | `name` | `string` | No |  |
 | `positioning` | `Record<string, any>` | No |  |
-| `price_range` | `Record<string, any>` | No |  |
-| `schema_version` | `string` | No |  |
+| `priceRange` | `Record<string, any>` | No |  |
+| `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `source` | `string` | No |  |
-| `tier` | `any[]` | No |  |
+| `tiers` | `any[]` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `Record<string, any>` | No |  |
 
@@ -542,7 +542,7 @@ const tco = client.Tco()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `string` | No |  |
-| `seat` | `number` | No |  |
+| `seats` | `number` | No |  |
 | `slug` | `string` | Yes |  |
 | `tier` | `string` | No |  |
 

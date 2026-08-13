@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/pricing-sdk/go/core"
+)
 
 // Compare is the typed data model for the compare entity.
 type Compare struct {
@@ -62,17 +66,17 @@ type McpCreateData struct {
 type Pricing struct {
 	Attribution string `json:"attribution"`
 	Category *string `json:"category,omitempty"`
-	Discount *map[string]any `json:"discount,omitempty"`
-	HiddenCost *[]any `json:"hidden_cost,omitempty"`
+	Discounts *map[string]any `json:"discounts,omitempty"`
+	HiddenCosts *[]any `json:"hiddenCosts,omitempty"`
 	License map[string]any `json:"license"`
-	Link map[string]any `json:"link"`
+	Links map[string]any `json:"links"`
 	Name *string `json:"name,omitempty"`
 	Positioning *map[string]any `json:"positioning,omitempty"`
-	PriceRange *map[string]any `json:"price_range,omitempty"`
-	SchemaVersion *string `json:"schema_version,omitempty"`
+	PriceRange *map[string]any `json:"priceRange,omitempty"`
+	SchemaVersion *string `json:"schemaVersion,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	Source *string `json:"source,omitempty"`
-	Tier *[]any `json:"tier,omitempty"`
+	Tiers *[]any `json:"tiers,omitempty"`
 	Verdict *string `json:"verdict,omitempty"`
 	Verification *map[string]any `json:"verification,omitempty"`
 }
@@ -85,7 +89,7 @@ type PricingLoadMatch struct {
 // Tco is the typed data model for the tco entity.
 type Tco struct {
 	Billing *string `json:"billing,omitempty"`
-	Seat *int `json:"seat,omitempty"`
+	Seats *int `json:"seats,omitempty"`
 	Slug string `json:"slug"`
 	Tier *string `json:"tier,omitempty"`
 }
@@ -93,7 +97,7 @@ type Tco struct {
 // TcoCreateData is the typed request payload for Tco.CreateTyped.
 type TcoCreateData struct {
 	Billing *string `json:"billing,omitempty"`
-	Seat *int `json:"seat,omitempty"`
+	Seats *int `json:"seats,omitempty"`
 	Slug string `json:"slug"`
 	Tier *string `json:"tier,omitempty"`
 }
@@ -119,12 +123,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -136,12 +154,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

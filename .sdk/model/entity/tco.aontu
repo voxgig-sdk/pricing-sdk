@@ -11,7 +11,7 @@ main: kit: entity: tco: {
       type: "`$STRING`"
     }
     {
-      name: "seat"
+      name: "seats"
       req: false
       type: "`$INTEGER`"
     }

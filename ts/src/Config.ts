@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Pricing',
   }
 
 
@@ -99,6 +99,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/compare",
               "parts": [
@@ -149,6 +150,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/cost-guide/{slug}",
               "parts": [
@@ -213,6 +215,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/coverage",
               "parts": [
@@ -295,6 +298,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/discover",
               "parts": [
@@ -349,6 +353,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/history/{slug}",
               "parts": [
@@ -392,6 +397,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/mcp",
               "parts": [
@@ -431,14 +437,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "discount",
+          "name": "discounts",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "hidden_cost",
+          "name": "hiddenCosts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 3
@@ -452,7 +458,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "link",
+          "name": "links",
           "req": true,
           "type": "`$OBJECT`",
           "index$": 5
@@ -473,14 +479,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "price_range",
+          "name": "priceRange",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "schema_version",
+          "name": "schemaVersion",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -501,7 +507,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "tier",
+          "name": "tiers",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 12
@@ -562,6 +568,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/pricing/{slug}",
               "parts": [
@@ -611,6 +618,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/pricing",
               "parts": [
@@ -649,7 +657,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "seat",
+          "name": "seats",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 1
@@ -678,6 +686,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/api/v2/tco",
               "parts": [
@@ -750,6 +759,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/v2/usage/{slug}",
               "parts": [

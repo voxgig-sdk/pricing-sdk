@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = PricingSDK.test()
 
 const compare = await client.Compare().load()
-// compare is a bare entity populated with mock response data
+// compare is the entity, populated with mock response data
+// — call compare.data() for the record itself
 console.log(compare)
 ```
 
@@ -349,17 +350,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `attribution` |  |
 | `category` |  |
-| `discount` |  |
-| `hidden_cost` |  |
+| `discounts` |  |
+| `hiddenCosts` |  |
 | `license` |  |
-| `link` |  |
+| `links` |  |
 | `name` |  |
 | `positioning` |  |
-| `price_range` |  |
-| `schema_version` |  |
+| `priceRange` |  |
+| `schemaVersion` |  |
 | `slug` |  |
 | `source` |  |
-| `tier` |  |
+| `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
 
@@ -372,7 +373,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `billing` |  |
-| `seat` |  |
+| `seats` |  |
 | `slug` |  |
 | `tier` |  |
 
@@ -513,17 +514,17 @@ Create an instance: `const pricing = client.Pricing()`
 | --- | --- | --- |
 | `attribution` | `string` |  |
 | `category` | `string` |  |
-| `discount` | `Record<string, any>` |  |
-| `hidden_cost` | `any[]` |  |
+| `discounts` | `Record<string, any>` |  |
+| `hiddenCosts` | `any[]` |  |
 | `license` | `Record<string, any>` |  |
-| `link` | `Record<string, any>` |  |
+| `links` | `Record<string, any>` |  |
 | `name` | `string` |  |
 | `positioning` | `Record<string, any>` |  |
-| `price_range` | `Record<string, any>` |  |
-| `schema_version` | `string` |  |
+| `priceRange` | `Record<string, any>` |  |
+| `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
 | `source` | `string` |  |
-| `tier` | `any[]` |  |
+| `tiers` | `any[]` |  |
 | `verdict` | `string` |  |
 | `verification` | `Record<string, any>` |  |
 
@@ -549,7 +550,7 @@ Create an instance: `const tco = client.Tco()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `string` |  |
-| `seat` | `number` |  |
+| `seats` | `number` |  |
 | `slug` | `string` |  |
 | `tier` | `string` |  |
 

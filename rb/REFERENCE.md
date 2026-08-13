@@ -404,17 +404,17 @@ pricing = client.Pricing
 | --- | --- | --- | --- |
 | `attribution` | `String` | Yes |  |
 | `category` | `String` | No |  |
-| `discount` | `Hash` | No |  |
-| `hidden_cost` | `Array` | No |  |
+| `discounts` | `Hash` | No |  |
+| `hiddenCosts` | `Array` | No |  |
 | `license` | `Hash` | Yes |  |
-| `link` | `Hash` | Yes |  |
+| `links` | `Hash` | Yes |  |
 | `name` | `String` | No |  |
 | `positioning` | `Hash` | No |  |
-| `price_range` | `Hash` | No |  |
-| `schema_version` | `String` | No |  |
+| `priceRange` | `Hash` | No |  |
+| `schemaVersion` | `String` | No |  |
 | `slug` | `String` | No |  |
 | `source` | `String` | No |  |
-| `tier` | `Array` | No |  |
+| `tiers` | `Array` | No |  |
 | `verdict` | `String` | No |  |
 | `verification` | `Hash` | No |  |
 
@@ -469,7 +469,7 @@ tco = client.Tco
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `String` | No |  |
-| `seat` | `Integer` | No |  |
+| `seats` | `Integer` | No |  |
 | `slug` | `String` | Yes |  |
 | `tier` | `String` | No |  |
 

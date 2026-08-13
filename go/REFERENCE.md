@@ -403,17 +403,17 @@ fmt.Println(pricing.GetName()) // "pricing"
 | --- | --- | --- | --- |
 | `attribution` | `string` | Yes |  |
 | `category` | `string` | No |  |
-| `discount` | `map[string]any` | No |  |
-| `hidden_cost` | `[]any` | No |  |
+| `discounts` | `map[string]any` | No |  |
+| `hiddenCosts` | `[]any` | No |  |
 | `license` | `map[string]any` | Yes |  |
-| `link` | `map[string]any` | Yes |  |
+| `links` | `map[string]any` | Yes |  |
 | `name` | `string` | No |  |
 | `positioning` | `map[string]any` | No |  |
-| `price_range` | `map[string]any` | No |  |
-| `schema_version` | `string` | No |  |
+| `priceRange` | `map[string]any` | No |  |
+| `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `source` | `string` | No |  |
-| `tier` | `[]any` | No |  |
+| `tiers` | `[]any` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `map[string]any` | No |  |
 
@@ -467,7 +467,7 @@ fmt.Println(tco.GetName()) // "tco"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `string` | No |  |
-| `seat` | `int` | No |  |
+| `seats` | `int` | No |  |
 | `slug` | `string` | Yes |  |
 | `tier` | `string` | No |  |
 

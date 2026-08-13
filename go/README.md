@@ -323,17 +323,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `"attribution"` |  |
 | `"category"` |  |
-| `"discount"` |  |
-| `"hidden_cost"` |  |
+| `"discounts"` |  |
+| `"hiddenCosts"` |  |
 | `"license"` |  |
-| `"link"` |  |
+| `"links"` |  |
 | `"name"` |  |
 | `"positioning"` |  |
-| `"price_range"` |  |
-| `"schema_version"` |  |
+| `"priceRange"` |  |
+| `"schemaVersion"` |  |
 | `"slug"` |  |
 | `"source"` |  |
-| `"tier"` |  |
+| `"tiers"` |  |
 | `"verdict"` |  |
 | `"verification"` |  |
 
@@ -346,7 +346,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `"billing"` |  |
-| `"seat"` |  |
+| `"seats"` |  |
 | `"slug"` |  |
 | `"tier"` |  |
 
@@ -511,17 +511,17 @@ Create an instance: `pricing := client.Pricing(nil)`
 | --- | --- | --- |
 | `attribution` | `string` |  |
 | `category` | `string` |  |
-| `discount` | `map[string]any` |  |
-| `hidden_cost` | `[]any` |  |
+| `discounts` | `map[string]any` |  |
+| `hiddenCosts` | `[]any` |  |
 | `license` | `map[string]any` |  |
-| `link` | `map[string]any` |  |
+| `links` | `map[string]any` |  |
 | `name` | `string` |  |
 | `positioning` | `map[string]any` |  |
-| `price_range` | `map[string]any` |  |
-| `schema_version` | `string` |  |
+| `priceRange` | `map[string]any` |  |
+| `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
 | `source` | `string` |  |
-| `tier` | `[]any` |  |
+| `tiers` | `[]any` |  |
 | `verdict` | `string` |  |
 | `verification` | `map[string]any` |  |
 
@@ -551,7 +551,7 @@ Create an instance: `tco := client.Tco(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `string` |  |
-| `seat` | `int` |  |
+| `seats` | `int` |  |
 | `slug` | `string` |  |
 | `tier` | `string` |  |
 

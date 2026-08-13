@@ -401,17 +401,17 @@ local pricing = client:Pricing(nil)
 | --- | --- | --- | --- |
 | `attribution` | `string` | Yes |  |
 | `category` | `string` | No |  |
-| `discount` | `table` | No |  |
-| `hidden_cost` | `table` | No |  |
+| `discounts` | `table` | No |  |
+| `hiddenCosts` | `table` | No |  |
 | `license` | `table` | Yes |  |
-| `link` | `table` | Yes |  |
+| `links` | `table` | Yes |  |
 | `name` | `string` | No |  |
 | `positioning` | `table` | No |  |
-| `price_range` | `table` | No |  |
-| `schema_version` | `string` | No |  |
+| `priceRange` | `table` | No |  |
+| `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `source` | `string` | No |  |
-| `tier` | `table` | No |  |
+| `tiers` | `table` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `table` | No |  |
 
@@ -466,7 +466,7 @@ local tco = client:Tco(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `string` | No |  |
-| `seat` | `number` | No |  |
+| `seats` | `number` | No |  |
 | `slug` | `string` | Yes |  |
 | `tier` | `string` | No |  |
 

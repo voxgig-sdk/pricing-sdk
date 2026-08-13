@@ -44,7 +44,7 @@ class TcoEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.tco"), "tco_ref01"));
 
         $tco_ref01_data_result = $tco_ref01_ent->create($tco_ref01_data, null);
-        $tco_ref01_data = Helpers::to_map($tco_ref01_data_result);
+        $tco_ref01_data = Helpers::to_map(is_object($tco_ref01_data_result) && method_exists($tco_ref01_data_result, 'data_get') ? $tco_ref01_data_result->data_get() : $tco_ref01_data_result);
         $this->assertNotNull($tco_ref01_data);
 
     }

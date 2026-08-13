@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import PricingControl
-from core.error import PricingError
-from core.result import PricingResult
-from core.spec import PricingSpec
+from pricing_sdk.config import make_config
+from pricing_sdk.features import _make_feature
+from pricing_sdk.core.control import PricingControl
+from pricing_sdk.core.error import PricingError
+from pricing_sdk.core.result import PricingResult
+from pricing_sdk.core.spec import PricingSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -38,7 +38,7 @@ client = PricingSDK()
 
 ### 3. Load a compare
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = PricingSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 compare = client.Compare().load()
 # compare contains the mock response record
 ```
@@ -227,7 +228,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -305,17 +306,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `attribution` |  |
 | `category` |  |
-| `discount` |  |
-| `hidden_cost` |  |
+| `discounts` |  |
+| `hiddenCosts` |  |
 | `license` |  |
-| `link` |  |
+| `links` |  |
 | `name` |  |
 | `positioning` |  |
-| `price_range` |  |
-| `schema_version` |  |
+| `priceRange` |  |
+| `schemaVersion` |  |
 | `slug` |  |
 | `source` |  |
-| `tier` |  |
+| `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
 
@@ -328,7 +329,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `billing` |  |
-| `seat` |  |
+| `seats` |  |
 | `slug` |  |
 | `tier` |  |
 
@@ -469,17 +470,17 @@ Create an instance: `pricing = client.Pricing()`
 | --- | --- | --- |
 | `attribution` | `str` |  |
 | `category` | `str` |  |
-| `discount` | `dict` |  |
-| `hidden_cost` | `list` |  |
+| `discounts` | `dict` |  |
+| `hiddenCosts` | `list` |  |
 | `license` | `dict` |  |
-| `link` | `dict` |  |
+| `links` | `dict` |  |
 | `name` | `str` |  |
 | `positioning` | `dict` |  |
-| `price_range` | `dict` |  |
-| `schema_version` | `str` |  |
+| `priceRange` | `dict` |  |
+| `schemaVersion` | `str` |  |
 | `slug` | `str` |  |
 | `source` | `str` |  |
-| `tier` | `list` |  |
+| `tiers` | `list` |  |
 | `verdict` | `str` |  |
 | `verification` | `dict` |  |
 
@@ -505,7 +506,7 @@ Create an instance: `tco = client.Tco()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `str` |  |
-| `seat` | `int` |  |
+| `seats` | `int` |  |
 | `slug` | `str` |  |
 | `tier` | `str` |  |
 

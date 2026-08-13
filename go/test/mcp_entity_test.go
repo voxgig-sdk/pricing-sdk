@@ -58,7 +58,7 @@ func TestMcpEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		mcpRef01Data = core.ToMapAny(mcpRef01DataResult)
+		mcpRef01Data = core.ToMapAny(entityData(mcpRef01DataResult))
 		if mcpRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

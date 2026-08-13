@@ -79,17 +79,17 @@ class Pricing
 {
     public string $attribution;
     public ?string $category = null;
-    public ?array $discount = null;
-    public ?array $hidden_cost = null;
+    public ?array $discounts = null;
+    public ?array $hiddenCosts = null;
     public array $license;
-    public array $link;
+    public array $links;
     public ?string $name = null;
     public ?array $positioning = null;
-    public ?array $price_range = null;
-    public ?string $schema_version = null;
+    public ?array $priceRange = null;
+    public ?string $schemaVersion = null;
     public ?string $slug = null;
     public ?string $source = null;
-    public ?array $tier = null;
+    public ?array $tiers = null;
     public ?string $verdict = null;
     public ?array $verification = null;
 }
@@ -104,7 +104,7 @@ class PricingLoadMatch
 class Tco
 {
     public ?string $billing = null;
-    public ?int $seat = null;
+    public ?int $seats = null;
     public string $slug;
     public ?string $tier = null;
 }
@@ -113,7 +113,7 @@ class Tco
 class TcoCreateData
 {
     public ?string $billing = null;
-    public ?int $seat = null;
+    public ?int $seats = null;
     public string $slug;
     public ?string $tier = null;
 }

@@ -3,21 +3,21 @@
     "tco": {
       "TCO00": {
         "billing": "s28",
-        "seat": "s29",
+        "seats": "s29",
         "slug": "s2a",
         "tier": "s2b",
         "id": "TCO00"
       },
       "TCO01": {
         "billing": "s50",
-        "seat": "s51",
+        "seats": "s51",
         "slug": "s52",
         "tier": "s53",
         "id": "TCO01"
       },
       "TCO02": {
         "billing": "s78",
-        "seat": "s79",
+        "seats": "s79",
         "slug": "s7a",
         "tier": "s7b",
         "id": "TCO02"
@@ -28,7 +28,7 @@
     "tco": {
       "tco_ref01": {
         "billing": "sa0",
-        "seat": "sa1",
+        "seats": "sa1",
         "slug": "sa2",
         "tier": "sa3"
       }

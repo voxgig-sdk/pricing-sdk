@@ -16,12 +16,12 @@ main: kit: entity: pricing: {
       type: "`$STRING`"
     }
     {
-      name: "discount"
+      name: "discounts"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "hidden_cost"
+      name: "hiddenCosts"
       req: false
       type: "`$ARRAY`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: pricing: {
       type: "`$OBJECT`"
     }
     {
-      name: "link"
+      name: "links"
       req: true
       type: "`$OBJECT`"
     }
@@ -46,12 +46,12 @@ main: kit: entity: pricing: {
       type: "`$OBJECT`"
     }
     {
-      name: "price_range"
+      name: "priceRange"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "schema_version"
+      name: "schemaVersion"
       req: false
       type: "`$STRING`"
     }
@@ -66,7 +66,7 @@ main: kit: entity: pricing: {
       type: "`$STRING`"
     }
     {
-      name: "tier"
+      name: "tiers"
       req: false
       type: "`$ARRAY`"
     }

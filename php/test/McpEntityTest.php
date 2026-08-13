@@ -44,7 +44,7 @@ class McpEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.mcp"), "mcp_ref01"));
 
         $mcp_ref01_data_result = $mcp_ref01_ent->create($mcp_ref01_data, null);
-        $mcp_ref01_data = Helpers::to_map($mcp_ref01_data_result);
+        $mcp_ref01_data = Helpers::to_map(is_object($mcp_ref01_data_result) && method_exists($mcp_ref01_data_result, 'data_get') ? $mcp_ref01_data_result->data_get() : $mcp_ref01_data_result);
         $this->assertNotNull($mcp_ref01_data);
 
     }

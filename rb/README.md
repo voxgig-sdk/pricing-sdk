@@ -34,7 +34,7 @@ client = PricingSDK.new
 
 ```ruby
 begin
-  # load returns the bare Compare record (raises on error).
+  # load returns the ENTITY — call data_get for the Compare record (raises on error).
   compare = client.Compare.load()
   puts compare
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = PricingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 compare = client.Compare.load()
 puts compare
 ```
@@ -299,17 +300,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `attribution` |  |
 | `category` |  |
-| `discount` |  |
-| `hidden_cost` |  |
+| `discounts` |  |
+| `hiddenCosts` |  |
 | `license` |  |
-| `link` |  |
+| `links` |  |
 | `name` |  |
 | `positioning` |  |
-| `price_range` |  |
-| `schema_version` |  |
+| `priceRange` |  |
+| `schemaVersion` |  |
 | `slug` |  |
 | `source` |  |
-| `tier` |  |
+| `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
 
@@ -322,7 +323,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `billing` |  |
-| `seat` |  |
+| `seats` |  |
 | `slug` |  |
 | `tier` |  |
 
@@ -357,7 +358,7 @@ Create an instance: `compare = client.Compare`
 #### Example: Load
 
 ```ruby
-# load returns the bare Compare record (raises on error).
+# load returns the ENTITY — call data_get for the Compare record (raises on error).
 compare = client.Compare.load()
 ```
 
@@ -375,7 +376,7 @@ Create an instance: `cost_guide = client.CostGuide`
 #### Example: Load
 
 ```ruby
-# load returns the bare CostGuide record (raises on error).
+# load returns the ENTITY — call data_get for the CostGuide record (raises on error).
 cost_guide = client.CostGuide.load({ "id" => "cost_guide_id" })
 ```
 
@@ -393,7 +394,7 @@ Create an instance: `coverage = client.Coverage`
 #### Example: Load
 
 ```ruby
-# load returns the bare Coverage record (raises on error).
+# load returns the ENTITY — call data_get for the Coverage record (raises on error).
 coverage = client.Coverage.load()
 ```
 
@@ -411,7 +412,7 @@ Create an instance: `discover = client.Discover`
 #### Example: Load
 
 ```ruby
-# load returns the bare Discover record (raises on error).
+# load returns the ENTITY — call data_get for the Discover record (raises on error).
 discover = client.Discover.load()
 ```
 
@@ -429,7 +430,7 @@ Create an instance: `history = client.History`
 #### Example: Load
 
 ```ruby
-# load returns the bare History record (raises on error).
+# load returns the ENTITY — call data_get for the History record (raises on error).
 history = client.History.load({ "id" => "history_id" })
 ```
 
@@ -468,24 +469,24 @@ Create an instance: `pricing = client.Pricing`
 | --- | --- | --- |
 | `attribution` | `String` |  |
 | `category` | `String` |  |
-| `discount` | `Hash` |  |
-| `hidden_cost` | `Array` |  |
+| `discounts` | `Hash` |  |
+| `hiddenCosts` | `Array` |  |
 | `license` | `Hash` |  |
-| `link` | `Hash` |  |
+| `links` | `Hash` |  |
 | `name` | `String` |  |
 | `positioning` | `Hash` |  |
-| `price_range` | `Hash` |  |
-| `schema_version` | `String` |  |
+| `priceRange` | `Hash` |  |
+| `schemaVersion` | `String` |  |
 | `slug` | `String` |  |
 | `source` | `String` |  |
-| `tier` | `Array` |  |
+| `tiers` | `Array` |  |
 | `verdict` | `String` |  |
 | `verification` | `Hash` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Pricing record (raises on error).
+# load returns the ENTITY — call data_get for the Pricing record (raises on error).
 pricing = client.Pricing.load({ "id" => "pricing_id" })
 ```
 
@@ -505,7 +506,7 @@ Create an instance: `tco = client.Tco`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `String` |  |
-| `seat` | `Integer` |  |
+| `seats` | `Integer` |  |
 | `slug` | `String` |  |
 | `tier` | `String` |  |
 
@@ -531,7 +532,7 @@ Create an instance: `usage = client.Usage`
 #### Example: Load
 
 ```ruby
-# load returns the bare Usage record (raises on error).
+# load returns the ENTITY — call data_get for the Usage record (raises on error).
 usage = client.Usage.load({ "id" => "usage_id" })
 ```
 

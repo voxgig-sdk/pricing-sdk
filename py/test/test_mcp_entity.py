@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pricing_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pricing_sdk import PricingSDK
-from core import helpers
+from pricing_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestMcpEntity:
         mcp_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.mcp"), "mcp_ref01"))
 
-        mcp_ref01_data = helpers.to_map(mcp_ref01_ent.create(mcp_ref01_data, None))
+        mcp_ref01_data = helpers.to_map(runner.entity_data(mcp_ref01_ent.create(mcp_ref01_data, None)))
         assert mcp_ref01_data is not None
 
 

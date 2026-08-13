@@ -403,17 +403,17 @@ $pricing = $client->Pricing();
 | --- | --- | --- | --- |
 | `attribution` | `string` | Yes |  |
 | `category` | `string` | No |  |
-| `discount` | `array` | No |  |
-| `hidden_cost` | `array` | No |  |
+| `discounts` | `array` | No |  |
+| `hiddenCosts` | `array` | No |  |
 | `license` | `array` | Yes |  |
-| `link` | `array` | Yes |  |
+| `links` | `array` | Yes |  |
 | `name` | `string` | No |  |
 | `positioning` | `array` | No |  |
-| `price_range` | `array` | No |  |
-| `schema_version` | `string` | No |  |
+| `priceRange` | `array` | No |  |
+| `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
 | `source` | `string` | No |  |
-| `tier` | `array` | No |  |
+| `tiers` | `array` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `array` | No |  |
 
@@ -468,7 +468,7 @@ $tco = $client->Tco();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `string` | No |  |
-| `seat` | `int` | No |  |
+| `seats` | `int` | No |  |
 | `slug` | `string` | Yes |  |
 | `tier` | `string` | No |  |
 

@@ -46,17 +46,17 @@ export interface McpCreateData {
 export interface Pricing {
   attribution: string
   category?: string
-  discount?: Record<string, any>
-  hidden_cost?: any[]
+  discounts?: Record<string, any>
+  hiddenCosts?: any[]
   license: Record<string, any>
-  link: Record<string, any>
+  links: Record<string, any>
   name?: string
   positioning?: Record<string, any>
-  price_range?: Record<string, any>
-  schema_version?: string
+  priceRange?: Record<string, any>
+  schemaVersion?: string
   slug?: string
   source?: string
-  tier?: any[]
+  tiers?: any[]
   verdict?: string
   verification?: Record<string, any>
 }
@@ -67,14 +67,14 @@ export interface PricingLoadMatch {
 
 export interface Tco {
   billing?: string
-  seat?: number
+  seats?: number
   slug: string
   tier?: string
 }
 
 export interface TcoCreateData {
   billing?: string
-  seat?: number
+  seats?: number
   slug: string
   tier?: string
 }

@@ -392,17 +392,17 @@ pricing = client.Pricing()
 | --- | --- | --- | --- |
 | `attribution` | `str` | Yes |  |
 | `category` | `str` | No |  |
-| `discount` | `dict` | No |  |
-| `hidden_cost` | `list` | No |  |
+| `discounts` | `dict` | No |  |
+| `hiddenCosts` | `list` | No |  |
 | `license` | `dict` | Yes |  |
-| `link` | `dict` | Yes |  |
+| `links` | `dict` | Yes |  |
 | `name` | `str` | No |  |
 | `positioning` | `dict` | No |  |
-| `price_range` | `dict` | No |  |
-| `schema_version` | `str` | No |  |
+| `priceRange` | `dict` | No |  |
+| `schemaVersion` | `str` | No |  |
 | `slug` | `str` | No |  |
 | `source` | `str` | No |  |
-| `tier` | `list` | No |  |
+| `tiers` | `list` | No |  |
 | `verdict` | `str` | No |  |
 | `verification` | `dict` | No |  |
 
@@ -456,7 +456,7 @@ tco = client.Tco()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `billing` | `str` | No |  |
-| `seat` | `int` | No |  |
+| `seats` | `int` | No |  |
 | `slug` | `str` | Yes |  |
 | `tier` | `str` | No |  |
 

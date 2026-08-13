@@ -62,7 +62,7 @@ describe('TcoEntity', async () => {
     const tco_ref01_ent = client.Tco()
     let tco_ref01_data = setup.data.new.tco['tco_ref01']
 
-    tco_ref01_data = await tco_ref01_ent.create(tco_ref01_data)
+    tco_ref01_data = (await tco_ref01_ent.create(tco_ref01_data)).data()
     assert(null != tco_ref01_data)
 
 

@@ -54,6 +54,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/compare",
                   "parts" => [
@@ -104,6 +105,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/cost-guide/{slug}",
                   "parts" => [
@@ -168,6 +170,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/coverage",
                   "parts" => [
@@ -250,6 +253,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/discover",
                   "parts" => [
@@ -304,6 +308,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/history/{slug}",
                   "parts" => [
@@ -347,6 +352,7 @@ module PricingConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/api/mcp",
                   "parts" => [
@@ -386,14 +392,14 @@ module PricingConfig
             },
             {
               "active" => true,
-              "name" => "discount",
+              "name" => "discounts",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 2,
             },
             {
               "active" => true,
-              "name" => "hidden_cost",
+              "name" => "hiddenCosts",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -407,7 +413,7 @@ module PricingConfig
             },
             {
               "active" => true,
-              "name" => "link",
+              "name" => "links",
               "req" => true,
               "type" => "`$OBJECT`",
               "index$" => 5,
@@ -428,14 +434,14 @@ module PricingConfig
             },
             {
               "active" => true,
-              "name" => "price_range",
+              "name" => "priceRange",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 8,
             },
             {
               "active" => true,
-              "name" => "schema_version",
+              "name" => "schemaVersion",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 9,
@@ -456,7 +462,7 @@ module PricingConfig
             },
             {
               "active" => true,
-              "name" => "tier",
+              "name" => "tiers",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 12,
@@ -517,6 +523,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/pricing/{slug}",
                   "parts" => [
@@ -566,6 +573,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/pricing",
                   "parts" => [
@@ -604,7 +612,7 @@ module PricingConfig
             },
             {
               "active" => true,
-              "name" => "seat",
+              "name" => "seats",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 1,
@@ -633,6 +641,7 @@ module PricingConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/api/v2/tco",
                   "parts" => [
@@ -705,6 +714,7 @@ module PricingConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/usage/{slug}",
                   "parts" => [

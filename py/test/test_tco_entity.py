@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pricing_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pricing_sdk import PricingSDK
-from core import helpers
+from pricing_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestTcoEntity:
         tco_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.tco"), "tco_ref01"))
 
-        tco_ref01_data = helpers.to_map(tco_ref01_ent.create(tco_ref01_data, None))
+        tco_ref01_data = helpers.to_map(runner.entity_data(tco_ref01_ent.create(tco_ref01_data, None)))
         assert tco_ref01_data is not None
 
 

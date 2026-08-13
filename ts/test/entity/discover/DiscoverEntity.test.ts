@@ -62,7 +62,7 @@ describe('DiscoverEntity', async () => {
     // LOAD
     const discover_ref01_ent = client.Discover()
     const discover_ref01_match_dt0: any = {}
-    const discover_ref01_data_dt0 = await discover_ref01_ent.load(discover_ref01_match_dt0)
+    const discover_ref01_data_dt0 = (await discover_ref01_ent.load(discover_ref01_match_dt0)).data()
     assert(null != discover_ref01_data_dt0)
 
 

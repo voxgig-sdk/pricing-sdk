@@ -58,7 +58,7 @@ func TestTcoEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		tcoRef01Data = core.ToMapAny(tcoRef01DataResult)
+		tcoRef01Data = core.ToMapAny(entityData(tcoRef01DataResult))
 		if tcoRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import PricingSDK
-from core.error import PricingError
-from core.result import PricingResult
-from core.response import PricingResponse
-from core.spec import PricingSpec
-from feature.base_feature import PricingBaseFeature
+from projectname_sdk.core.error import PricingError
+from projectname_sdk.core.result import PricingResult
+from projectname_sdk.core.response import PricingResponse
+from projectname_sdk.core.spec import PricingSpec
+from projectname_sdk.feature.base_feature import PricingBaseFeature
 
 
 def _client():

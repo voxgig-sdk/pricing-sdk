@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Pricing SDK exists test
 
 import pytest
 from pricing_sdk import PricingSDK

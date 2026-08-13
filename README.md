@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = PricingSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = PricingSDK.test({
+  entity: {
+    compare: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const compare = await client.Compare().load()
-// compare is a bare Compare populated with mock data
+// compare is the Compare entity, populated with mock data
+// — call compare.data() for the record itself
 console.log(compare)
 ```
 
@@ -190,7 +199,7 @@ require_once 'pricing_sdk.php';
 $client = new PricingSDK();
 
 
-// Load a specific compare (returns the bare record; throws on error)
+// Load a specific compare (returns the ENTITY; call data_get() for the record; throws on error)
 $compare = $client->Compare()->load();
 print_r($compare);
 ```
@@ -218,7 +227,7 @@ require_relative "Pricing_sdk"
 client = PricingSDK.new
 
 
-# Load a specific compare (returns the bare record; raises on error)
+# Load a specific compare (returns the ENTITY; call data_get for the record)
 compare = client.Compare.load()
 puts compare
 ```
@@ -352,6 +361,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://comparedge.com](https://comparedge.com)
 

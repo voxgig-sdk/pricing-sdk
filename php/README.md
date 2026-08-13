@@ -35,7 +35,7 @@ $client = new PricingSDK();
 
 ```php
 try {
-    // load() returns the bare Compare record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Compare record (throws on error).
     $compare = $client->Compare()->load();
     print_r($compare);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = PricingSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $compare = $client->Compare()->load();
 print_r($compare);
 ```
@@ -231,7 +232,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -309,17 +310,17 @@ API path: `/api/mcp`
 | --- | --- |
 | `attribution` |  |
 | `category` |  |
-| `discount` |  |
-| `hidden_cost` |  |
+| `discounts` |  |
+| `hiddenCosts` |  |
 | `license` |  |
-| `link` |  |
+| `links` |  |
 | `name` |  |
 | `positioning` |  |
-| `price_range` |  |
-| `schema_version` |  |
+| `priceRange` |  |
+| `schemaVersion` |  |
 | `slug` |  |
 | `source` |  |
-| `tier` |  |
+| `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
 
@@ -332,7 +333,7 @@ API path: `/api/v2/pricing/{slug}`
 | Field | Description |
 | --- | --- |
 | `billing` |  |
-| `seat` |  |
+| `seats` |  |
 | `slug` |  |
 | `tier` |  |
 
@@ -367,7 +368,7 @@ Create an instance: `$compare = $client->Compare();`
 #### Example: Load
 
 ```php
-// load() returns the bare Compare record (throws on error).
+// load() returns the ENTITY — call data_get() for the Compare record (throws on error).
 $compare = $client->Compare()->load();
 ```
 
@@ -385,7 +386,7 @@ Create an instance: `$cost_guide = $client->CostGuide();`
 #### Example: Load
 
 ```php
-// load() returns the bare CostGuide record (throws on error).
+// load() returns the ENTITY — call data_get() for the CostGuide record (throws on error).
 $cost_guide = $client->CostGuide()->load(["id" => "cost_guide_id"]);
 ```
 
@@ -403,7 +404,7 @@ Create an instance: `$coverage = $client->Coverage();`
 #### Example: Load
 
 ```php
-// load() returns the bare Coverage record (throws on error).
+// load() returns the ENTITY — call data_get() for the Coverage record (throws on error).
 $coverage = $client->Coverage()->load();
 ```
 
@@ -421,7 +422,7 @@ Create an instance: `$discover = $client->Discover();`
 #### Example: Load
 
 ```php
-// load() returns the bare Discover record (throws on error).
+// load() returns the ENTITY — call data_get() for the Discover record (throws on error).
 $discover = $client->Discover()->load();
 ```
 
@@ -439,7 +440,7 @@ Create an instance: `$history = $client->History();`
 #### Example: Load
 
 ```php
-// load() returns the bare History record (throws on error).
+// load() returns the ENTITY — call data_get() for the History record (throws on error).
 $history = $client->History()->load(["id" => "history_id"]);
 ```
 
@@ -478,24 +479,24 @@ Create an instance: `$pricing = $client->Pricing();`
 | --- | --- | --- |
 | `attribution` | `string` |  |
 | `category` | `string` |  |
-| `discount` | `array` |  |
-| `hidden_cost` | `array` |  |
+| `discounts` | `array` |  |
+| `hiddenCosts` | `array` |  |
 | `license` | `array` |  |
-| `link` | `array` |  |
+| `links` | `array` |  |
 | `name` | `string` |  |
 | `positioning` | `array` |  |
-| `price_range` | `array` |  |
-| `schema_version` | `string` |  |
+| `priceRange` | `array` |  |
+| `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
 | `source` | `string` |  |
-| `tier` | `array` |  |
+| `tiers` | `array` |  |
 | `verdict` | `string` |  |
 | `verification` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Pricing record (throws on error).
+// load() returns the ENTITY — call data_get() for the Pricing record (throws on error).
 $pricing = $client->Pricing()->load(["id" => "pricing_id"]);
 ```
 
@@ -515,7 +516,7 @@ Create an instance: `$tco = $client->Tco();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `billing` | `string` |  |
-| `seat` | `int` |  |
+| `seats` | `int` |  |
 | `slug` | `string` |  |
 | `tier` | `string` |  |
 
@@ -541,7 +542,7 @@ Create an instance: `$usage = $client->Usage();`
 #### Example: Load
 
 ```php
-// load() returns the bare Usage record (throws on error).
+// load() returns the ENTITY — call data_get() for the Usage record (throws on error).
 $usage = $client->Usage()->load(["id" => "usage_id"]);
 ```
 

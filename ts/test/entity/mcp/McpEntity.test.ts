@@ -62,7 +62,7 @@ describe('McpEntity', async () => {
     const mcp_ref01_ent = client.Mcp()
     let mcp_ref01_data = setup.data.new.mcp['mcp_ref01']
 
-    mcp_ref01_data = await mcp_ref01_ent.create(mcp_ref01_data)
+    mcp_ref01_data = (await mcp_ref01_ent.create(mcp_ref01_data)).data()
     assert(null != mcp_ref01_data)
 
 
