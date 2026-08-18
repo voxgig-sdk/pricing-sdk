@@ -50,7 +50,7 @@
 ---@field verification? table
 
 ---@class PricingLoadMatch
----@field id? string
+---@field id string
 
 ---@class Tco
 ---@field billing? string

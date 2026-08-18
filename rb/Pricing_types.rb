@@ -134,7 +134,7 @@ Pricing = Struct.new(
 # Request payload for Pricing#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 PricingLoadMatch = Struct.new(
   :id,
   keyword_init: true

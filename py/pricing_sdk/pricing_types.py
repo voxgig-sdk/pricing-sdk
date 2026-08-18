@@ -85,7 +85,7 @@ class Pricing(PricingRequired, total=False):
     verification: dict
 
 
-class PricingLoadMatch(TypedDict, total=False):
+class PricingLoadMatch(TypedDict):
     id: str
 
 

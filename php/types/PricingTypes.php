@@ -97,7 +97,7 @@ class Pricing
 /** Request payload for Pricing#load. */
 class PricingLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
 }
 
 /** Tco entity data model. */

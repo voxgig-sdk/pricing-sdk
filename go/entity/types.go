@@ -83,7 +83,7 @@ type Pricing struct {
 
 // PricingLoadMatch is the typed request payload for Pricing.LoadTyped.
 type PricingLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // Tco is the typed data model for the tco entity.

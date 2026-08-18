@@ -62,7 +62,7 @@ export interface Pricing {
 }
 
 export interface PricingLoadMatch {
-  id?: string
+  id: string
 }
 
 export interface Tco {
