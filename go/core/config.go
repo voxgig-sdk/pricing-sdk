@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Pricing",
+			"slug": "pricing",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -349,6 +352,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "attribution",
 						"req": true,
+						"short": "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page).",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -357,6 +361,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "discounts",
+						"short": "Per-tier annual savings + best available.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -366,11 +371,13 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "license",
 						"req": true,
+						"short": "Per-field license: owned = free to cite with attribution; restricted = display only.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "links",
 						"req": true,
+						"short": "Citation links on every record.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -379,6 +386,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "positioning",
+						"short": "Starting price vs category median/min/max + sample size.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -395,6 +403,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "source",
+						"short": "The vendor URL the price was read from.",
 						"type": "`$STRING`",
 					},
 					map[string]any{

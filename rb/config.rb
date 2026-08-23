@@ -19,6 +19,9 @@ module PricingConfig
     {
       "main" => {
         "name" => "Pricing",
+        "slug" => "pricing",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -357,6 +360,7 @@ module PricingConfig
             {
               "name" => "attribution",
               "req" => true,
+              "short" => "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page).",
               "type" => "`$STRING`",
             },
             {
@@ -365,6 +369,7 @@ module PricingConfig
             },
             {
               "name" => "discounts",
+              "short" => "Per-tier annual savings + best available.",
               "type" => "`$OBJECT`",
             },
             {
@@ -374,11 +379,13 @@ module PricingConfig
             {
               "name" => "license",
               "req" => true,
+              "short" => "Per-field license: owned = free to cite with attribution; restricted = display only.",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "links",
               "req" => true,
+              "short" => "Citation links on every record.",
               "type" => "`$OBJECT`",
             },
             {
@@ -387,6 +394,7 @@ module PricingConfig
             },
             {
               "name" => "positioning",
+              "short" => "Starting price vs category median/min/max + sample size.",
               "type" => "`$OBJECT`",
             },
             {
@@ -403,6 +411,7 @@ module PricingConfig
             },
             {
               "name" => "source",
+              "short" => "The vendor URL the price was read from.",
               "type" => "`$STRING`",
             },
             {

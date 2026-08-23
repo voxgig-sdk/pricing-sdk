@@ -308,18 +308,18 @@ API path: `/api/mcp`
 
 | Field | Description |
 | --- | --- |
-| `attribution` |  |
+| `attribution` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` |  |
-| `discounts` |  |
+| `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
-| `license` |  |
-| `links` |  |
+| `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | Citation links on every record. |
 | `name` |  |
-| `positioning` |  |
+| `positioning` | Starting price vs category median/min/max + sample size. |
 | `priceRange` |  |
 | `schemaVersion` |  |
 | `slug` |  |
-| `source` |  |
+| `source` | The vendor URL the price was read from. |
 | `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
@@ -477,18 +477,18 @@ Create an instance: `$pricing = $client->Pricing();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attribution` | `string` |  |
+| `attribution` | `string` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` |  |
-| `discounts` | `array` |  |
+| `discounts` | `array` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `array` |  |
-| `license` | `array` |  |
-| `links` | `array` |  |
+| `license` | `array` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `array` | Citation links on every record. |
 | `name` | `string` |  |
-| `positioning` | `array` |  |
+| `positioning` | `array` | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `array` |  |
 | `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
-| `source` | `string` |  |
+| `source` | `string` | The vendor URL the price was read from. |
 | `tiers` | `array` |  |
 | `verdict` | `string` |  |
 | `verification` | `array` |  |

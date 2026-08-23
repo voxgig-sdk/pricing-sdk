@@ -399,18 +399,18 @@ local pricing = client:Pricing(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `string` | Yes |  |
+| `attribution` | `string` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` | No |  |
-| `discounts` | `table` | No |  |
+| `discounts` | `table` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `table` | No |  |
-| `license` | `table` | Yes |  |
-| `links` | `table` | Yes |  |
+| `license` | `table` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `table` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
-| `positioning` | `table` | No |  |
+| `positioning` | `table` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `table` | No |  |
 | `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `source` | `string` | No |  |
+| `source` | `string` | No | The vendor URL the price was read from. |
 | `tiers` | `table` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `table` | No |  |

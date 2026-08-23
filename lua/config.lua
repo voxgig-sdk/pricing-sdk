@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Pricing",
+      slug = "pricing",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -345,6 +348,7 @@ local function make_config()
           {
             ["name"] = "attribution",
             ["req"] = true,
+            ["short"] = "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page).",
             ["type"] = "`$STRING`",
           },
           {
@@ -353,6 +357,7 @@ local function make_config()
           },
           {
             ["name"] = "discounts",
+            ["short"] = "Per-tier annual savings + best available.",
             ["type"] = "`$OBJECT`",
           },
           {
@@ -362,11 +367,13 @@ local function make_config()
           {
             ["name"] = "license",
             ["req"] = true,
+            ["short"] = "Per-field license: owned = free to cite with attribution; restricted = display only.",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "links",
             ["req"] = true,
+            ["short"] = "Citation links on every record.",
             ["type"] = "`$OBJECT`",
           },
           {
@@ -375,6 +382,7 @@ local function make_config()
           },
           {
             ["name"] = "positioning",
+            ["short"] = "Starting price vs category median/min/max + sample size.",
             ["type"] = "`$OBJECT`",
           },
           {
@@ -391,6 +399,7 @@ local function make_config()
           },
           {
             ["name"] = "source",
+            ["short"] = "The vendor URL the price was read from.",
             ["type"] = "`$STRING`",
           },
           {

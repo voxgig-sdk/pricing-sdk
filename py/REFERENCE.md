@@ -390,18 +390,18 @@ pricing = client.Pricing()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `str` | Yes |  |
+| `attribution` | `str` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `str` | No |  |
-| `discounts` | `dict` | No |  |
+| `discounts` | `dict` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `list` | No |  |
-| `license` | `dict` | Yes |  |
-| `links` | `dict` | Yes |  |
+| `license` | `dict` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `dict` | Yes | Citation links on every record. |
 | `name` | `str` | No |  |
-| `positioning` | `dict` | No |  |
+| `positioning` | `dict` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `dict` | No |  |
 | `schemaVersion` | `str` | No |  |
 | `slug` | `str` | No |  |
-| `source` | `str` | No |  |
+| `source` | `str` | No | The vendor URL the price was read from. |
 | `tiers` | `list` | No |  |
 | `verdict` | `str` | No |  |
 | `verification` | `dict` | No |  |

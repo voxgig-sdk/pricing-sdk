@@ -304,18 +304,18 @@ API path: `/api/mcp`
 
 | Field | Description |
 | --- | --- |
-| `attribution` |  |
+| `attribution` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` |  |
-| `discounts` |  |
+| `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
-| `license` |  |
-| `links` |  |
+| `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | Citation links on every record. |
 | `name` |  |
-| `positioning` |  |
+| `positioning` | Starting price vs category median/min/max + sample size. |
 | `priceRange` |  |
 | `schemaVersion` |  |
 | `slug` |  |
-| `source` |  |
+| `source` | The vendor URL the price was read from. |
 | `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
@@ -468,18 +468,18 @@ Create an instance: `pricing = client.Pricing()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attribution` | `str` |  |
+| `attribution` | `str` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `str` |  |
-| `discounts` | `dict` |  |
+| `discounts` | `dict` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `list` |  |
-| `license` | `dict` |  |
-| `links` | `dict` |  |
+| `license` | `dict` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `dict` | Citation links on every record. |
 | `name` | `str` |  |
-| `positioning` | `dict` |  |
+| `positioning` | `dict` | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `dict` |  |
 | `schemaVersion` | `str` |  |
 | `slug` | `str` |  |
-| `source` | `str` |  |
+| `source` | `str` | The vendor URL the price was read from. |
 | `tiers` | `list` |  |
 | `verdict` | `str` |  |
 | `verification` | `dict` |  |

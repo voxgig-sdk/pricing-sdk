@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Pricing',
+        slug: "pricing",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -388,6 +399,7 @@ class Config {
         {
           "name": "attribution",
           "req": true,
+          "short": "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page).",
           "type": "`$STRING`"
         },
         {
@@ -396,6 +408,7 @@ class Config {
         },
         {
           "name": "discounts",
+          "short": "Per-tier annual savings + best available.",
           "type": "`$OBJECT`"
         },
         {
@@ -405,11 +418,13 @@ class Config {
         {
           "name": "license",
           "req": true,
+          "short": "Per-field license: owned = free to cite with attribution; restricted = display only.",
           "type": "`$OBJECT`"
         },
         {
           "name": "links",
           "req": true,
+          "short": "Citation links on every record.",
           "type": "`$OBJECT`"
         },
         {
@@ -418,6 +433,7 @@ class Config {
         },
         {
           "name": "positioning",
+          "short": "Starting price vs category median/min/max + sample size.",
           "type": "`$OBJECT`"
         },
         {
@@ -434,6 +450,7 @@ class Config {
         },
         {
           "name": "source",
+          "short": "The vendor URL the price was read from.",
           "type": "`$STRING`"
         },
         {

@@ -8,6 +8,7 @@ main: kit: entity: pricing: {
     {
       name: "attribution"
       req: true
+      short: "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page)."
       type: "`$STRING`"
     }
     {
@@ -18,6 +19,7 @@ main: kit: entity: pricing: {
     {
       name: "discounts"
       req: false
+      short: "Per-tier annual savings + best available."
       type: "`$OBJECT`"
     }
     {
@@ -28,11 +30,13 @@ main: kit: entity: pricing: {
     {
       name: "license"
       req: true
+      short: "Per-field license: owned = free to cite with attribution; restricted = display only."
       type: "`$OBJECT`"
     }
     {
       name: "links"
       req: true
+      short: "Citation links on every record."
       type: "`$OBJECT`"
     }
     {
@@ -43,6 +47,7 @@ main: kit: entity: pricing: {
     {
       name: "positioning"
       req: false
+      short: "Starting price vs category median/min/max + sample size."
       type: "`$OBJECT`"
     }
     {
@@ -63,6 +68,7 @@ main: kit: entity: pricing: {
     {
       name: "source"
       req: false
+      short: "The vendor URL the price was read from."
       type: "`$STRING`"
     }
     {

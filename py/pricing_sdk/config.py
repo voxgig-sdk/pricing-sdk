@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Pricing",
+            "slug": "pricing",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -366,6 +369,7 @@ def make_config():
           {
             "name": "attribution",
             "req": True,
+            "short": "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page).",
             "type": "`$STRING`",
           },
           {
@@ -374,6 +378,7 @@ def make_config():
           },
           {
             "name": "discounts",
+            "short": "Per-tier annual savings + best available.",
             "type": "`$OBJECT`",
           },
           {
@@ -383,11 +388,13 @@ def make_config():
           {
             "name": "license",
             "req": True,
+            "short": "Per-field license: owned = free to cite with attribution; restricted = display only.",
             "type": "`$OBJECT`",
           },
           {
             "name": "links",
             "req": True,
+            "short": "Citation links on every record.",
             "type": "`$OBJECT`",
           },
           {
@@ -396,6 +403,7 @@ def make_config():
           },
           {
             "name": "positioning",
+            "short": "Starting price vs category median/min/max + sample size.",
             "type": "`$OBJECT`",
           },
           {
@@ -412,6 +420,7 @@ def make_config():
           },
           {
             "name": "source",
+            "short": "The vendor URL the price was read from.",
             "type": "`$STRING`",
           },
           {

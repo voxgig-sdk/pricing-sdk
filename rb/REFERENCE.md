@@ -402,18 +402,18 @@ pricing = client.Pricing
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `String` | Yes |  |
+| `attribution` | `String` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `String` | No |  |
-| `discounts` | `Hash` | No |  |
+| `discounts` | `Hash` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `Array` | No |  |
-| `license` | `Hash` | Yes |  |
-| `links` | `Hash` | Yes |  |
+| `license` | `Hash` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `Hash` | Yes | Citation links on every record. |
 | `name` | `String` | No |  |
-| `positioning` | `Hash` | No |  |
+| `positioning` | `Hash` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `Hash` | No |  |
 | `schemaVersion` | `String` | No |  |
 | `slug` | `String` | No |  |
-| `source` | `String` | No |  |
+| `source` | `String` | No | The vendor URL the price was read from. |
 | `tiers` | `Array` | No |  |
 | `verdict` | `String` | No |  |
 | `verification` | `Hash` | No |  |

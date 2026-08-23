@@ -401,18 +401,18 @@ fmt.Println(pricing.GetName()) // "pricing"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `string` | Yes |  |
+| `attribution` | `string` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` | No |  |
-| `discounts` | `map[string]any` | No |  |
+| `discounts` | `map[string]any` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `[]any` | No |  |
-| `license` | `map[string]any` | Yes |  |
-| `links` | `map[string]any` | Yes |  |
+| `license` | `map[string]any` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `map[string]any` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
-| `positioning` | `map[string]any` | No |  |
+| `positioning` | `map[string]any` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `map[string]any` | No |  |
 | `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `source` | `string` | No |  |
+| `source` | `string` | No | The vendor URL the price was read from. |
 | `tiers` | `[]any` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `map[string]any` | No |  |

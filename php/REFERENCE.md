@@ -401,18 +401,18 @@ $pricing = $client->Pricing();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `string` | Yes |  |
+| `attribution` | `string` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` | No |  |
-| `discounts` | `array` | No |  |
+| `discounts` | `array` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `array` | No |  |
-| `license` | `array` | Yes |  |
-| `links` | `array` | Yes |  |
+| `license` | `array` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `array` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
-| `positioning` | `array` | No |  |
+| `positioning` | `array` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `array` | No |  |
 | `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `source` | `string` | No |  |
+| `source` | `string` | No | The vendor URL the price was read from. |
 | `tiers` | `array` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `array` | No |  |

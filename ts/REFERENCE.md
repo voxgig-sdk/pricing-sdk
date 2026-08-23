@@ -477,18 +477,18 @@ const pricing = client.Pricing()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `attribution` | `string` | Yes |  |
+| `attribution` | `string` | Yes | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` | No |  |
-| `discounts` | `Record<string, any>` | No |  |
+| `discounts` | `Record<string, any>` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `any[]` | No |  |
-| `license` | `Record<string, any>` | Yes |  |
-| `links` | `Record<string, any>` | Yes |  |
+| `license` | `Record<string, any>` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `Record<string, any>` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
-| `positioning` | `Record<string, any>` | No |  |
+| `positioning` | `Record<string, any>` | No | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `Record<string, any>` | No |  |
 | `schemaVersion` | `string` | No |  |
 | `slug` | `string` | No |  |
-| `source` | `string` | No |  |
+| `source` | `string` | No | The vendor URL the price was read from. |
 | `tiers` | `any[]` | No |  |
 | `verdict` | `string` | No |  |
 | `verification` | `Record<string, any>` | No |  |

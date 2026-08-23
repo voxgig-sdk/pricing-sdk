@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -348,18 +348,18 @@ API path: `/api/mcp`
 
 | Field | Description |
 | --- | --- |
-| `attribution` |  |
+| `attribution` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` |  |
-| `discounts` |  |
+| `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
-| `license` |  |
-| `links` |  |
+| `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | Citation links on every record. |
 | `name` |  |
-| `positioning` |  |
+| `positioning` | Starting price vs category median/min/max + sample size. |
 | `priceRange` |  |
 | `schemaVersion` |  |
 | `slug` |  |
-| `source` |  |
+| `source` | The vendor URL the price was read from. |
 | `tiers` |  |
 | `verdict` |  |
 | `verification` |  |
@@ -512,18 +512,18 @@ Create an instance: `const pricing = client.Pricing()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attribution` | `string` |  |
+| `attribution` | `string` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` |  |
-| `discounts` | `Record<string, any>` |  |
+| `discounts` | `Record<string, any>` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `any[]` |  |
-| `license` | `Record<string, any>` |  |
-| `links` | `Record<string, any>` |  |
+| `license` | `Record<string, any>` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `Record<string, any>` | Citation links on every record. |
 | `name` | `string` |  |
-| `positioning` | `Record<string, any>` |  |
+| `positioning` | `Record<string, any>` | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `Record<string, any>` |  |
 | `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
-| `source` | `string` |  |
+| `source` | `string` | The vendor URL the price was read from. |
 | `tiers` | `any[]` |  |
 | `verdict` | `string` |  |
 | `verification` | `Record<string, any>` |  |

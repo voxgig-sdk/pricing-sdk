@@ -6,7 +6,7 @@ The Golang SDK for the Pricing API — an entity-oriented client using standard 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Compare(nil)` — each with the same small set of operations (`Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -321,18 +321,18 @@ API path: `/api/mcp`
 
 | Field | Description |
 | --- | --- |
-| `"attribution"` |  |
+| `"attribution"` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `"category"` |  |
-| `"discounts"` |  |
+| `"discounts"` | Per-tier annual savings + best available. |
 | `"hiddenCosts"` |  |
-| `"license"` |  |
-| `"links"` |  |
+| `"license"` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `"links"` | Citation links on every record. |
 | `"name"` |  |
-| `"positioning"` |  |
+| `"positioning"` | Starting price vs category median/min/max + sample size. |
 | `"priceRange"` |  |
 | `"schemaVersion"` |  |
 | `"slug"` |  |
-| `"source"` |  |
+| `"source"` | The vendor URL the price was read from. |
 | `"tiers"` |  |
 | `"verdict"` |  |
 | `"verification"` |  |
@@ -509,18 +509,18 @@ Create an instance: `pricing := client.Pricing(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `attribution` | `string` |  |
+| `attribution` | `string` | Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, "{product} pricing" -> links.page). |
 | `category` | `string` |  |
-| `discounts` | `map[string]any` |  |
+| `discounts` | `map[string]any` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `[]any` |  |
-| `license` | `map[string]any` |  |
-| `links` | `map[string]any` |  |
+| `license` | `map[string]any` | Per-field license: owned = free to cite with attribution; restricted = display only. |
+| `links` | `map[string]any` | Citation links on every record. |
 | `name` | `string` |  |
-| `positioning` | `map[string]any` |  |
+| `positioning` | `map[string]any` | Starting price vs category median/min/max + sample size. |
 | `priceRange` | `map[string]any` |  |
 | `schemaVersion` | `string` |  |
 | `slug` | `string` |  |
-| `source` | `string` |  |
+| `source` | `string` | The vendor URL the price was read from. |
 | `tiers` | `[]any` |  |
 | `verdict` | `string` |  |
 | `verification` | `map[string]any` |  |
