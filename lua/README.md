@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local compare, err = client:Compare():load()
+local history, err = client:History():load({ id = "example_id" })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Compare():load()
+local result, err = client:History():load({ id = "test01" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -243,6 +243,7 @@ API path: `/api/v2/compare`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -270,6 +271,7 @@ API path: `/api/v2/discover`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -292,6 +294,7 @@ API path: `/api/mcp`
 | `category` |  |
 | `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
+| `id` |  |
 | `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | Citation links on every record. |
 | `name` |  |
@@ -325,6 +328,7 @@ API path: `/api/v2/tco`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -361,6 +365,12 @@ Create an instance: `local cost_guide = client:CostGuide(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -413,6 +423,12 @@ Create an instance: `local history = client:History(nil)`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```lua
@@ -456,6 +472,7 @@ Create an instance: `local pricing = client:Pricing(nil)`
 | `category` | `string` |  |
 | `discounts` | `table` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `table` |  |
+| `id` | `string` |  |
 | `license` | `table` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `table` | Citation links on every record. |
 | `name` | `string` |  |
@@ -512,6 +529,12 @@ Create an instance: `local usage = client:Usage(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -596,11 +619,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local compare = client:Compare()
-compare:load()
+local history = client:History()
+history:load({ id = "example_id" })
 
--- compare:data_get() now returns the compare data from the last load
--- compare:match_get() returns the last match criteria
+-- history:data_get() now returns the history data from the last load
+-- history:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

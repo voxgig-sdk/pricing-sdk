@@ -167,6 +167,12 @@ Return the entity name.
 cost_guide = client.CostGuide
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -305,6 +311,12 @@ Return the entity name.
 history = client.History
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -406,6 +418,7 @@ pricing = client.Pricing
 | `category` | `String` | No |  |
 | `discounts` | `Hash` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `Array` | No |  |
+| `id` | `String` | No |  |
 | `license` | `Hash` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `Hash` | Yes | Citation links on every record. |
 | `name` | `String` | No |  |
@@ -520,6 +533,12 @@ Return the entity name.
 ```ruby
 usage = client.Usage
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

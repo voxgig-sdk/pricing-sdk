@@ -171,6 +171,12 @@ costGuide := client.CostGuide(nil)
 fmt.Println(costGuide.GetName()) // "cost_guide"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -306,6 +312,12 @@ history := client.History(nil)
 fmt.Println(history.GetName()) // "history"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -405,6 +417,7 @@ fmt.Println(pricing.GetName()) // "pricing"
 | `category` | `string` | No |  |
 | `discounts` | `map[string]any` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `[]any` | No |  |
+| `id` | `string` | No |  |
 | `license` | `map[string]any` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `map[string]any` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
@@ -517,6 +530,12 @@ Return the entity name.
 usage := client.Usage(nil)
 fmt.Println(usage.GetName()) // "usage"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

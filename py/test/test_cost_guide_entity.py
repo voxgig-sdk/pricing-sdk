@@ -48,9 +48,13 @@ class TestCostGuideEntity:
 
         # LOAD
         cost_guide_ref01_ent = client.CostGuide(None)
-        cost_guide_ref01_match_dt0 = {}
+        cost_guide_ref01_match_dt0 = {
+            "id": cost_guide_ref01_data["id"],
+        }
         cost_guide_ref01_data_dt0_loaded = cost_guide_ref01_ent.load(cost_guide_ref01_match_dt0, None)
-        assert cost_guide_ref01_data_dt0_loaded is not None
+        cost_guide_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(cost_guide_ref01_data_dt0_loaded))
+        assert cost_guide_ref01_data_dt0_load_result is not None
+        assert cost_guide_ref01_data_dt0_load_result["id"] == cost_guide_ref01_data["id"]
 
 
 

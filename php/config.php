@@ -42,6 +42,7 @@ class PricingConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -109,7 +110,12 @@ class PricingConfig
           ],
         ],
         'cost_guide' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'cost_guide',
           'op' => [
             'load' => [
@@ -288,7 +294,12 @@ class PricingConfig
           ],
         ],
         'history' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'history',
           'op' => [
             'load' => [
@@ -389,6 +400,10 @@ class PricingConfig
             [
               'name' => 'hiddenCosts',
               'type' => '`$ARRAY`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'license',
@@ -596,7 +611,12 @@ class PricingConfig
           ],
         ],
         'usage' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'usage',
           'op' => [
             'load' => [

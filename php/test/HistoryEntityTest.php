@@ -48,9 +48,13 @@ class HistoryEntityTest extends TestCase
 
         // LOAD
         $history_ref01_ent = $client->History(null);
-        $history_ref01_match_dt0 = [];
+        $history_ref01_match_dt0 = [
+            "id" => $history_ref01_data["id"],
+        ];
         $history_ref01_data_dt0_loaded = $history_ref01_ent->load($history_ref01_match_dt0, null);
-        $this->assertNotNull($history_ref01_data_dt0_loaded);
+        $history_ref01_data_dt0_load_result = Helpers::to_map(is_object($history_ref01_data_dt0_loaded) && method_exists($history_ref01_data_dt0_loaded, 'data_get') ? $history_ref01_data_dt0_loaded->data_get() : $history_ref01_data_dt0_loaded);
+        $this->assertNotNull($history_ref01_data_dt0_load_result);
+        $this->assertEquals($history_ref01_data_dt0_load_result["id"], $history_ref01_data["id"]);
 
     }
 }

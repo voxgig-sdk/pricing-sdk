@@ -41,9 +41,13 @@ class CostGuideEntityTest < Minitest::Test
 
     # LOAD
     cost_guide_ref01_ent = client.CostGuide(nil)
-    cost_guide_ref01_match_dt0 = {}
+    cost_guide_ref01_match_dt0 = {
+      "id" => cost_guide_ref01_data["id"],
+    }
     cost_guide_ref01_data_dt0_loaded = cost_guide_ref01_ent.load(cost_guide_ref01_match_dt0, nil)
-    assert !cost_guide_ref01_data_dt0_loaded.nil?
+    cost_guide_ref01_data_dt0_load_result = Helpers.to_map(cost_guide_ref01_data_dt0_loaded.respond_to?(:data_get) ? cost_guide_ref01_data_dt0_loaded.data_get : cost_guide_ref01_data_dt0_loaded)
+    assert !cost_guide_ref01_data_dt0_load_result.nil?
+    assert_equal cost_guide_ref01_data_dt0_load_result["id"], cost_guide_ref01_data["id"]
 
   end
 end

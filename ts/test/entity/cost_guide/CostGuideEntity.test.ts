@@ -59,9 +59,12 @@ describe('CostGuideEntity', async () => {
 
     let cost_guide_ref01_data = Object.values(setup.data.existing.cost_guide)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const cost_guide_ref01_ent = client.CostGuide()
+    const cost_guide_ref01_match_dt0: any = {}
+    cost_guide_ref01_match_dt0.id = cost_guide_ref01_data.id
+    const cost_guide_ref01_data_dt0 = (await cost_guide_ref01_ent.load(cost_guide_ref01_match_dt0)).data()
+    assert(cost_guide_ref01_data_dt0.id === cost_guide_ref01_data.id)
 
 
   })

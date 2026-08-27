@@ -61,13 +61,19 @@ func TestPricingEntity(t *testing.T) {
 
 		// LOAD
 		pricingRef01Ent := client.Pricing(nil)
-		pricingRef01MatchDt0 := map[string]any{}
+		pricingRef01MatchDt0 := map[string]any{
+			"id": pricingRef01Data["id"],
+		}
 		pricingRef01DataDt0Loaded, err := pricingRef01Ent.Load(pricingRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if pricingRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		pricingRef01DataDt0LoadResult := core.ToMapAny(entityData(pricingRef01DataDt0Loaded))
+		if pricingRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if pricingRef01DataDt0LoadResult["id"] != pricingRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

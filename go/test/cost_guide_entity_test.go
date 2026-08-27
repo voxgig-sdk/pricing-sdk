@@ -61,13 +61,19 @@ func TestCostGuideEntity(t *testing.T) {
 
 		// LOAD
 		costGuideRef01Ent := client.CostGuide(nil)
-		costGuideRef01MatchDt0 := map[string]any{}
+		costGuideRef01MatchDt0 := map[string]any{
+			"id": costGuideRef01Data["id"],
+		}
 		costGuideRef01DataDt0Loaded, err := costGuideRef01Ent.Load(costGuideRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if costGuideRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		costGuideRef01DataDt0LoadResult := core.ToMapAny(entityData(costGuideRef01DataDt0Loaded))
+		if costGuideRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if costGuideRef01DataDt0LoadResult["id"] != costGuideRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

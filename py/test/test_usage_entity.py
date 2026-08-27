@@ -48,9 +48,13 @@ class TestUsageEntity:
 
         # LOAD
         usage_ref01_ent = client.Usage(None)
-        usage_ref01_match_dt0 = {}
+        usage_ref01_match_dt0 = {
+            "id": usage_ref01_data["id"],
+        }
         usage_ref01_data_dt0_loaded = usage_ref01_ent.load(usage_ref01_match_dt0, None)
-        assert usage_ref01_data_dt0_loaded is not None
+        usage_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(usage_ref01_data_dt0_loaded))
+        assert usage_ref01_data_dt0_load_result is not None
+        assert usage_ref01_data_dt0_load_result["id"] == usage_ref01_data["id"]
 
 
 

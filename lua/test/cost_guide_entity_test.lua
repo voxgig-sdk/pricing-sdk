@@ -44,10 +44,14 @@ describe("CostGuideEntity", function()
 
     -- LOAD
     local cost_guide_ref01_ent = client:CostGuide(nil)
-    local cost_guide_ref01_match_dt0 = {}
+    local cost_guide_ref01_match_dt0 = {
+      id = cost_guide_ref01_data["id"],
+    }
     local cost_guide_ref01_data_dt0_loaded, err = cost_guide_ref01_ent:load(cost_guide_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(cost_guide_ref01_data_dt0_loaded)
+    local cost_guide_ref01_data_dt0_load_result = helpers.to_map(type(cost_guide_ref01_data_dt0_loaded) == 'table' and cost_guide_ref01_data_dt0_loaded.data_get and cost_guide_ref01_data_dt0_loaded:data_get() or cost_guide_ref01_data_dt0_loaded)
+    assert.is_not_nil(cost_guide_ref01_data_dt0_load_result)
+    assert.are.equal(cost_guide_ref01_data_dt0_load_result["id"], cost_guide_ref01_data["id"])
 
   end)
 end)

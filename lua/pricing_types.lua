@@ -11,6 +11,7 @@
 ---@class CompareLoadMatch
 
 ---@class CostGuide
+---@field id? string
 
 ---@class CostGuideLoadMatch
 ---@field id string
@@ -24,6 +25,7 @@
 ---@class DiscoverLoadMatch
 
 ---@class History
+---@field id? string
 
 ---@class HistoryLoadMatch
 ---@field id string
@@ -37,6 +39,7 @@
 ---@field category? string
 ---@field discounts? table
 ---@field hiddenCosts? table
+---@field id? string
 ---@field license table
 ---@field links table
 ---@field name? string
@@ -65,6 +68,7 @@
 ---@field tier? string
 
 ---@class Usage
+---@field id? string
 
 ---@class UsageLoadMatch
 ---@field id string

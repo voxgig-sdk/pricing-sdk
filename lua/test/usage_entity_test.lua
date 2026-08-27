@@ -44,10 +44,14 @@ describe("UsageEntity", function()
 
     -- LOAD
     local usage_ref01_ent = client:Usage(nil)
-    local usage_ref01_match_dt0 = {}
+    local usage_ref01_match_dt0 = {
+      id = usage_ref01_data["id"],
+    }
     local usage_ref01_data_dt0_loaded, err = usage_ref01_ent:load(usage_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(usage_ref01_data_dt0_loaded)
+    local usage_ref01_data_dt0_load_result = helpers.to_map(type(usage_ref01_data_dt0_loaded) == 'table' and usage_ref01_data_dt0_loaded.data_get and usage_ref01_data_dt0_loaded:data_get() or usage_ref01_data_dt0_loaded)
+    assert.is_not_nil(usage_ref01_data_dt0_load_result)
+    assert.are.equal(usage_ref01_data_dt0_load_result["id"], usage_ref01_data["id"])
 
   end)
 end)

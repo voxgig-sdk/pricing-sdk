@@ -41,9 +41,13 @@ class UsageEntityTest < Minitest::Test
 
     # LOAD
     usage_ref01_ent = client.Usage(nil)
-    usage_ref01_match_dt0 = {}
+    usage_ref01_match_dt0 = {
+      "id" => usage_ref01_data["id"],
+    }
     usage_ref01_data_dt0_loaded = usage_ref01_ent.load(usage_ref01_match_dt0, nil)
-    assert !usage_ref01_data_dt0_loaded.nil?
+    usage_ref01_data_dt0_load_result = Helpers.to_map(usage_ref01_data_dt0_loaded.respond_to?(:data_get) ? usage_ref01_data_dt0_loaded.data_get : usage_ref01_data_dt0_loaded)
+    assert !usage_ref01_data_dt0_load_result.nil?
+    assert_equal usage_ref01_data_dt0_load_result["id"], usage_ref01_data["id"]
 
   end
 end

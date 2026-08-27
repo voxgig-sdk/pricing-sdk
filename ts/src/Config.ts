@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -134,7 +135,12 @@ class Config {
       }
     },
     "cost_guide": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "cost_guide",
       "op": {
         "load": {
@@ -313,7 +319,12 @@ class Config {
       }
     },
     "history": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "history",
       "op": {
         "load": {
@@ -414,6 +425,10 @@ class Config {
         {
           "name": "hiddenCosts",
           "type": "`$ARRAY`"
+        },
+        {
+          "name": "id",
+          "type": "`$STRING`"
         },
         {
           "name": "license",
@@ -621,7 +636,12 @@ class Config {
       }
     },
     "usage": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "usage",
       "op": {
         "load": {

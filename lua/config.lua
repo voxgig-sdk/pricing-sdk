@@ -16,6 +16,7 @@ local function make_config()
         ["options"] = {
           ["active"] = false,
         },
+        ["transport"] = "base",
       },
     },
     options = {
@@ -83,7 +84,12 @@ local function make_config()
         },
       },
       ["cost_guide"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "cost_guide",
         ["op"] = {
           ["load"] = {
@@ -262,7 +268,12 @@ local function make_config()
         },
       },
       ["history"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "history",
         ["op"] = {
           ["load"] = {
@@ -363,6 +374,10 @@ local function make_config()
           {
             ["name"] = "hiddenCosts",
             ["type"] = "`$ARRAY`",
+          },
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "license",
@@ -570,7 +585,12 @@ local function make_config()
         },
       },
       ["usage"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "usage",
         ["op"] = {
           ["load"] = {

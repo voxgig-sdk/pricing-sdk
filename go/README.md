@@ -66,12 +66,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-compare, err := client.Compare(nil).Load(nil, nil)
+history, err := client.History(nil).Load(map[string]any{"id": "example_id"}, nil)
 if err != nil {
     // handle err
     return
 }
-_ = compare
+_ = history
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-compare, err := client.Compare(nil).Load(
-    nil, nil,
+history, err := client.History(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(compare) // the returned mock data
+fmt.Println(history) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -276,6 +276,7 @@ API path: `/api/v2/compare`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Load.
 
@@ -303,6 +304,7 @@ API path: `/api/v2/discover`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Load.
 
@@ -325,6 +327,7 @@ API path: `/api/mcp`
 | `"category"` |  |
 | `"discounts"` | Per-tier annual savings + best available. |
 | `"hiddenCosts"` |  |
+| `"id"` |  |
 | `"license"` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `"links"` | Citation links on every record. |
 | `"name"` |  |
@@ -358,6 +361,7 @@ API path: `/api/v2/tco`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: Load.
 
@@ -398,6 +402,12 @@ Create an instance: `costGuide := client.CostGuide(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -462,6 +472,12 @@ Create an instance: `history := client.History(nil)`
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```go
@@ -513,6 +529,7 @@ Create an instance: `pricing := client.Pricing(nil)`
 | `category` | `string` |  |
 | `discounts` | `map[string]any` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `[]any` |  |
+| `id` | `string` |  |
 | `license` | `map[string]any` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `map[string]any` | Citation links on every record. |
 | `name` | `string` |  |
@@ -577,6 +594,12 @@ Create an instance: `usage := client.Usage(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -662,11 +685,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-compare := client.Compare(nil)
-compare.Load(nil, nil)
+history := client.History(nil)
+history.Load(map[string]any{"id": "example_id"}, nil)
 
-// compare.Data() now returns the compare data from the last load
-// compare.Match() returns the last match criteria
+// history.Data() now returns the history data from the last load
+// history.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

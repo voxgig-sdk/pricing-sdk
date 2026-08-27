@@ -59,9 +59,12 @@ describe('UsageEntity', async () => {
 
     let usage_ref01_data = Object.values(setup.data.existing.usage)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const usage_ref01_ent = client.Usage()
+    const usage_ref01_match_dt0: any = {}
+    usage_ref01_match_dt0.id = usage_ref01_data.id
+    const usage_ref01_data_dt0 = (await usage_ref01_ent.load(usage_ref01_match_dt0)).data()
+    assert(usage_ref01_data_dt0.id === usage_ref01_data.id)
 
 
   })

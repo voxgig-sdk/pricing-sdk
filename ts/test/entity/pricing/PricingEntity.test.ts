@@ -59,9 +59,12 @@ describe('PricingEntity', async () => {
 
     let pricing_ref01_data = Object.values(setup.data.existing.pricing)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const pricing_ref01_ent = client.Pricing()
+    const pricing_ref01_match_dt0: any = {}
+    pricing_ref01_match_dt0.id = pricing_ref01_data.id
+    const pricing_ref01_data_dt0 = (await pricing_ref01_ent.load(pricing_ref01_match_dt0)).data()
+    assert(pricing_ref01_data_dt0.id === pricing_ref01_data.id)
 
 
   })

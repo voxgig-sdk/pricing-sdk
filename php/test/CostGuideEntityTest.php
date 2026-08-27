@@ -48,9 +48,13 @@ class CostGuideEntityTest extends TestCase
 
         // LOAD
         $cost_guide_ref01_ent = $client->CostGuide(null);
-        $cost_guide_ref01_match_dt0 = [];
+        $cost_guide_ref01_match_dt0 = [
+            "id" => $cost_guide_ref01_data["id"],
+        ];
         $cost_guide_ref01_data_dt0_loaded = $cost_guide_ref01_ent->load($cost_guide_ref01_match_dt0, null);
-        $this->assertNotNull($cost_guide_ref01_data_dt0_loaded);
+        $cost_guide_ref01_data_dt0_load_result = Helpers::to_map(is_object($cost_guide_ref01_data_dt0_loaded) && method_exists($cost_guide_ref01_data_dt0_loaded, 'data_get') ? $cost_guide_ref01_data_dt0_loaded->data_get() : $cost_guide_ref01_data_dt0_loaded);
+        $this->assertNotNull($cost_guide_ref01_data_dt0_load_result);
+        $this->assertEquals($cost_guide_ref01_data_dt0_load_result["id"], $cost_guide_ref01_data["id"]);
 
     }
 }

@@ -53,8 +53,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const compare = await client.Compare().load()
-  console.log(compare)
+  const history = await client.History().load({ id: "example_id" })
+  console.log(history)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -120,10 +120,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = PricingSDK.test()
 
-const compare = await client.Compare().load()
-// compare is the entity, populated with mock response data
-// — call compare.data() for the record itself
-console.log(compare)
+const history = await client.History().load({ id: 'test01' })
+// history is the entity, populated with mock response data
+// — call history.data() for the record itself
+console.log(history)
 ```
 
 You can also use the instance method:
@@ -138,14 +138,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Compare()
+const entity = client.History()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -303,6 +303,7 @@ API path: `/api/v2/compare`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: load.
 
@@ -330,6 +331,7 @@ API path: `/api/v2/discover`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: load.
 
@@ -352,6 +354,7 @@ API path: `/api/mcp`
 | `category` |  |
 | `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
+| `id` |  |
 | `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | Citation links on every record. |
 | `name` |  |
@@ -385,6 +388,7 @@ API path: `/api/v2/tco`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: load.
 
@@ -421,6 +425,12 @@ Create an instance: `const cost_guide = client.CostGuide()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -473,6 +483,12 @@ Create an instance: `const history = client.History()`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```ts
@@ -516,6 +532,7 @@ Create an instance: `const pricing = client.Pricing()`
 | `category` | `string` |  |
 | `discounts` | `Record<string, any>` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `any[]` |  |
+| `id` | `string` |  |
 | `license` | `Record<string, any>` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `Record<string, any>` | Citation links on every record. |
 | `name` | `string` |  |
@@ -572,6 +589,12 @@ Create an instance: `const usage = client.Usage()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: Load
 
@@ -649,11 +672,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const compare = client.Compare()
-await compare.load()
+const history = client.History()
+await history.load({ id: "example_id" })
 
-// compare.data() now returns the compare data from the last `load`
-// compare.match() returns the last match criteria
+// history.data() now returns the history data from the last `load`
+// history.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

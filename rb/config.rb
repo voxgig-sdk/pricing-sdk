@@ -28,6 +28,7 @@ module PricingConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -95,7 +96,12 @@ module PricingConfig
           },
         },
         "cost_guide" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "cost_guide",
           "op" => {
             "load" => {
@@ -274,7 +280,12 @@ module PricingConfig
           },
         },
         "history" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "history",
           "op" => {
             "load" => {
@@ -375,6 +386,10 @@ module PricingConfig
             {
               "name" => "hiddenCosts",
               "type" => "`$ARRAY`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "license",
@@ -582,7 +597,12 @@ module PricingConfig
           },
         },
         "usage" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "usage",
           "op" => {
             "load" => {

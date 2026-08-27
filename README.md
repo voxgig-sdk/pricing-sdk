@@ -42,23 +42,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = PricingSDK.test({
   entity: {
-    compare: {
+    history: {
       test01: { id: 'test01' },
     },
   },
 })
-const compare = await client.Compare().load()
-// compare is the Compare entity, populated with mock data
-// — call compare.data() for the record itself
-console.log(compare)
+const history = await client.History().load({ id: 'test01' })
+// history is the History entity, populated with mock data
+// — call history.data() for the record itself
+console.log(history)
 ```
 
 ### Python
 
 ```python
 client = PricingSDK.test()
-compare = client.Compare().load()
-print(compare)
+history = client.History().load({"id": "test01"})
+print(history)
 ```
 
 ### PHP
@@ -66,17 +66,17 @@ print(compare)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = PricingSDK::test([
-    "entity" => ["compare" => ["test01" => []]],
+    "entity" => ["history" => ["test01" => ["id" => "test01"]]],
 ]);
-$compare = $client->Compare()->load();
+$history = $client->History()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Compare(nil).Load(
-    nil, nil,
+result, err := client.History(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -85,16 +85,16 @@ result, err := client.Compare(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = PricingSDK.test({
-  "entity" => { "compare" => { "test01" => {} } },
+  "entity" => { "history" => { "test01" => { "id" => "test01" } } },
 })
-compare = client.Compare.load()
+history = client.History.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Compare():load()
+local result, err = client:History():load({ id = "test01" })
 ```
 
 ## Packages

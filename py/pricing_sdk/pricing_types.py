@@ -24,8 +24,8 @@ class CompareLoadMatch(TypedDict):
     pass
 
 
-class CostGuide(TypedDict):
-    pass
+class CostGuide(TypedDict, total=False):
+    id: str
 
 
 class CostGuideLoadMatch(TypedDict):
@@ -48,8 +48,8 @@ class DiscoverLoadMatch(TypedDict):
     pass
 
 
-class History(TypedDict):
-    pass
+class History(TypedDict, total=False):
+    id: str
 
 
 class HistoryLoadMatch(TypedDict):
@@ -74,6 +74,7 @@ class Pricing(PricingRequired, total=False):
     category: str
     discounts: dict
     hiddenCosts: list
+    id: str
     name: str
     positioning: dict
     priceRange: dict
@@ -109,8 +110,8 @@ class TcoCreateData(TcoCreateDataRequired, total=False):
     tier: str
 
 
-class Usage(TypedDict):
-    pass
+class Usage(TypedDict, total=False):
+    id: str
 
 
 class UsageLoadMatch(TypedDict):

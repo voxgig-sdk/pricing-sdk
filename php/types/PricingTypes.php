@@ -25,6 +25,7 @@ class CompareLoadMatch
 /** CostGuide entity data model. */
 class CostGuide
 {
+    public ?string $id = null;
 }
 
 /** Request payload for CostGuide#load. */
@@ -56,6 +57,7 @@ class DiscoverLoadMatch
 /** History entity data model. */
 class History
 {
+    public ?string $id = null;
 }
 
 /** Request payload for History#load. */
@@ -81,6 +83,7 @@ class Pricing
     public ?string $category = null;
     public ?array $discounts = null;
     public ?array $hiddenCosts = null;
+    public ?string $id = null;
     public array $license;
     public array $links;
     public ?string $name = null;
@@ -121,6 +124,7 @@ class TcoCreateData
 /** Usage entity data model. */
 class Usage
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Usage#load. */

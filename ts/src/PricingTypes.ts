@@ -12,6 +12,7 @@ export interface CompareLoadMatch {
 }
 
 export interface CostGuide {
+  id?: string
 }
 
 export interface CostGuideLoadMatch {
@@ -31,6 +32,7 @@ export interface DiscoverLoadMatch {
 }
 
 export interface History {
+  id?: string
 }
 
 export interface HistoryLoadMatch {
@@ -48,6 +50,7 @@ export interface Pricing {
   category?: string
   discounts?: Record<string, any>
   hiddenCosts?: any[]
+  id?: string
   license: Record<string, any>
   links: Record<string, any>
   name?: string
@@ -80,6 +83,7 @@ export interface TcoCreateData {
 }
 
 export interface Usage {
+  id?: string
 }
 
 export interface UsageLoadMatch {

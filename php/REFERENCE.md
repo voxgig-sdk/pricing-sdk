@@ -166,6 +166,12 @@ Return the entity name.
 $cost_guide = $client->CostGuide();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -304,6 +310,12 @@ Return the entity name.
 $history = $client->History();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -405,6 +417,7 @@ $pricing = $client->Pricing();
 | `category` | `string` | No |  |
 | `discounts` | `array` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `array` | No |  |
+| `id` | `string` | No |  |
 | `license` | `array` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `array` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
@@ -519,6 +532,12 @@ Return the entity name.
 ```php
 $usage = $client->Usage();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

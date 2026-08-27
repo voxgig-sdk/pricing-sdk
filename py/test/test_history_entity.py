@@ -48,9 +48,13 @@ class TestHistoryEntity:
 
         # LOAD
         history_ref01_ent = client.History(None)
-        history_ref01_match_dt0 = {}
+        history_ref01_match_dt0 = {
+            "id": history_ref01_data["id"],
+        }
         history_ref01_data_dt0_loaded = history_ref01_ent.load(history_ref01_match_dt0, None)
-        assert history_ref01_data_dt0_loaded is not None
+        history_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(history_ref01_data_dt0_loaded))
+        assert history_ref01_data_dt0_load_result is not None
+        assert history_ref01_data_dt0_load_result["id"] == history_ref01_data["id"]
 
 
 

@@ -17,8 +17,13 @@ class CompareLoadMatch
 end
 
 # CostGuide entity data model.
-class CostGuide
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+CostGuide = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for CostGuide#load.
 #
@@ -46,8 +51,13 @@ class DiscoverLoadMatch
 end
 
 # History entity data model.
-class History
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+History = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for History#load.
 #
@@ -79,6 +89,9 @@ end
 #
 # @!attribute [rw] hiddenCosts
 #   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
 #
 # @!attribute [rw] license
 #   @return [Hash]
@@ -117,6 +130,7 @@ Pricing = Struct.new(
   :category,
   :discounts,
   :hiddenCosts,
+  :id,
   :license,
   :links,
   :name,
@@ -183,8 +197,13 @@ TcoCreateData = Struct.new(
 )
 
 # Usage entity data model.
-class Usage
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Usage = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Usage#load.
 #

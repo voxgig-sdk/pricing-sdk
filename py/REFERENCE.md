@@ -160,6 +160,12 @@ Return the entity name.
 cost_guide = client.CostGuide()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -295,6 +301,12 @@ Return the entity name.
 history = client.History()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -394,6 +406,7 @@ pricing = client.Pricing()
 | `category` | `str` | No |  |
 | `discounts` | `dict` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `list` | No |  |
+| `id` | `str` | No |  |
 | `license` | `dict` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `dict` | Yes | Citation links on every record. |
 | `name` | `str` | No |  |
@@ -506,6 +519,12 @@ Return the entity name.
 ```python
 usage = client.Usage()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

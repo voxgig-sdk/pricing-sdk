@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  compare = client.Compare.load()
+  history = client.History.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -112,15 +112,18 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = PricingSDK.test
+client = PricingSDK.test({
+  "entity" => { "history" => { "test01" => { "id" => "test01" } } },
+})
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-compare = client.Compare.load()
-puts compare
+history = client.History.load({ "id" => "test01" })
+puts history
 ```
 
 ### Use a custom fetch function
@@ -253,6 +256,7 @@ API path: `/api/v2/compare`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -280,6 +284,7 @@ API path: `/api/v2/discover`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -302,6 +307,7 @@ API path: `/api/mcp`
 | `category` |  |
 | `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
+| `id` |  |
 | `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | Citation links on every record. |
 | `name` |  |
@@ -335,6 +341,7 @@ API path: `/api/v2/tco`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -372,6 +379,12 @@ Create an instance: `cost_guide = client.CostGuide`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
 
 #### Example: Load
 
@@ -427,6 +440,12 @@ Create an instance: `history = client.History`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
+
 #### Example: Load
 
 ```ruby
@@ -471,6 +490,7 @@ Create an instance: `pricing = client.Pricing`
 | `category` | `String` |  |
 | `discounts` | `Hash` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `Array` |  |
+| `id` | `String` |  |
 | `license` | `Hash` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `Hash` | Citation links on every record. |
 | `name` | `String` |  |
@@ -528,6 +548,12 @@ Create an instance: `usage = client.Usage`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `String` |  |
 
 #### Example: Load
 
@@ -613,11 +639,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-compare = client.Compare
-compare.load()
+history = client.History
+history.load({ "id" => "example_id" })
 
-# compare.data_get now returns the compare data from the last load
-# compare.match_get returns the last match criteria
+# history.data_get now returns the history data from the last load
+# history.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

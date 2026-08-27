@@ -44,10 +44,14 @@ describe("PricingEntity", function()
 
     -- LOAD
     local pricing_ref01_ent = client:Pricing(nil)
-    local pricing_ref01_match_dt0 = {}
+    local pricing_ref01_match_dt0 = {
+      id = pricing_ref01_data["id"],
+    }
     local pricing_ref01_data_dt0_loaded, err = pricing_ref01_ent:load(pricing_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(pricing_ref01_data_dt0_loaded)
+    local pricing_ref01_data_dt0_load_result = helpers.to_map(type(pricing_ref01_data_dt0_loaded) == 'table' and pricing_ref01_data_dt0_loaded.data_get and pricing_ref01_data_dt0_loaded:data_get() or pricing_ref01_data_dt0_loaded)
+    assert.is_not_nil(pricing_ref01_data_dt0_load_result)
+    assert.are.equal(pricing_ref01_data_dt0_load_result["id"], pricing_ref01_data["id"])
 
   end)
 end)

@@ -48,9 +48,13 @@ class PricingEntityTest extends TestCase
 
         // LOAD
         $pricing_ref01_ent = $client->Pricing(null);
-        $pricing_ref01_match_dt0 = [];
+        $pricing_ref01_match_dt0 = [
+            "id" => $pricing_ref01_data["id"],
+        ];
         $pricing_ref01_data_dt0_loaded = $pricing_ref01_ent->load($pricing_ref01_match_dt0, null);
-        $this->assertNotNull($pricing_ref01_data_dt0_loaded);
+        $pricing_ref01_data_dt0_load_result = Helpers::to_map(is_object($pricing_ref01_data_dt0_loaded) && method_exists($pricing_ref01_data_dt0_loaded, 'data_get') ? $pricing_ref01_data_dt0_loaded->data_get() : $pricing_ref01_data_dt0_loaded);
+        $this->assertNotNull($pricing_ref01_data_dt0_load_result);
+        $this->assertEquals($pricing_ref01_data_dt0_load_result["id"], $pricing_ref01_data["id"]);
 
     }
 }

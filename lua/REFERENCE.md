@@ -164,6 +164,12 @@ Return the entity name.
 local cost_guide = client:CostGuide(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -302,6 +308,12 @@ Return the entity name.
 local history = client:History(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -403,6 +415,7 @@ local pricing = client:Pricing(nil)
 | `category` | `string` | No |  |
 | `discounts` | `table` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `table` | No |  |
+| `id` | `string` | No |  |
 | `license` | `table` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `table` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
@@ -517,6 +530,12 @@ Return the entity name.
 ```lua
 local usage = client:Usage(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

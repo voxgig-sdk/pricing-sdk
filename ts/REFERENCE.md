@@ -252,6 +252,12 @@ Return a copy of the entity options.
 const cost_guide = client.CostGuide()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -384,6 +390,12 @@ Return a copy of the entity options.
 const history = client.History()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -481,6 +493,7 @@ const pricing = client.Pricing()
 | `category` | `string` | No |  |
 | `discounts` | `Record<string, any>` | No | Per-tier annual savings + best available. |
 | `hiddenCosts` | `any[]` | No |  |
+| `id` | `string` | No |  |
 | `license` | `Record<string, any>` | Yes | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `Record<string, any>` | Yes | Citation links on every record. |
 | `name` | `string` | No |  |
@@ -591,6 +604,12 @@ Return a copy of the entity options.
 ```ts
 const usage = client.Usage()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

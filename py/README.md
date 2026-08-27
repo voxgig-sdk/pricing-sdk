@@ -55,8 +55,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    compare = client.Compare().load()
-    print(compare)
+    history = client.History().load({"id": "example_id"})
+    print(history)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -124,8 +124,8 @@ client = PricingSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-compare = client.Compare().load()
-# compare contains the mock response record
+history = client.History().load({"id": "test01"})
+# history contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -259,6 +259,7 @@ API path: `/api/v2/compare`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -286,6 +287,7 @@ API path: `/api/v2/discover`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -308,6 +310,7 @@ API path: `/api/mcp`
 | `category` |  |
 | `discounts` | Per-tier annual savings + best available. |
 | `hiddenCosts` |  |
+| `id` |  |
 | `license` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | Citation links on every record. |
 | `name` |  |
@@ -341,6 +344,7 @@ API path: `/api/v2/tco`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: Load.
 
@@ -377,6 +381,12 @@ Create an instance: `cost_guide = client.CostGuide()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `str` |  |
 
 #### Example: Load
 
@@ -429,6 +439,12 @@ Create an instance: `history = client.History()`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `str` |  |
+
 #### Example: Load
 
 ```python
@@ -472,6 +488,7 @@ Create an instance: `pricing = client.Pricing()`
 | `category` | `str` |  |
 | `discounts` | `dict` | Per-tier annual savings + best available. |
 | `hiddenCosts` | `list` |  |
+| `id` | `str` |  |
 | `license` | `dict` | Per-field license: owned = free to cite with attribution; restricted = display only. |
 | `links` | `dict` | Citation links on every record. |
 | `name` | `str` |  |
@@ -528,6 +545,12 @@ Create an instance: `usage = client.Usage()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `str` |  |
 
 #### Example: Load
 
@@ -611,11 +634,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-compare = client.Compare()
-compare.load()
+history = client.History()
+history.load({"id": "example_id"})
 
-# compare.data_get() now returns the compare data from the last load
-# compare.match_get() returns the last match criteria
+# history.data_get() now returns the history data from the last load
+# history.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

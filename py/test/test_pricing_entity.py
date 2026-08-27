@@ -48,9 +48,13 @@ class TestPricingEntity:
 
         # LOAD
         pricing_ref01_ent = client.Pricing(None)
-        pricing_ref01_match_dt0 = {}
+        pricing_ref01_match_dt0 = {
+            "id": pricing_ref01_data["id"],
+        }
         pricing_ref01_data_dt0_loaded = pricing_ref01_ent.load(pricing_ref01_match_dt0, None)
-        assert pricing_ref01_data_dt0_loaded is not None
+        pricing_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(pricing_ref01_data_dt0_loaded))
+        assert pricing_ref01_data_dt0_load_result is not None
+        assert pricing_ref01_data_dt0_load_result["id"] == pricing_ref01_data["id"]
 
 
 

@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -104,7 +105,12 @@ def make_config():
         },
       },
       "cost_guide": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "cost_guide",
         "op": {
           "load": {
@@ -283,7 +289,12 @@ def make_config():
         },
       },
       "history": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "history",
         "op": {
           "load": {
@@ -384,6 +395,10 @@ def make_config():
           {
             "name": "hiddenCosts",
             "type": "`$ARRAY`",
+          },
+          {
+            "name": "id",
+            "type": "`$STRING`",
           },
           {
             "name": "license",
@@ -591,7 +606,12 @@ def make_config():
         },
       },
       "usage": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "usage",
         "op": {
           "load": {

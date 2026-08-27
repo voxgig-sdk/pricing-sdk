@@ -48,9 +48,13 @@ class UsageEntityTest extends TestCase
 
         // LOAD
         $usage_ref01_ent = $client->Usage(null);
-        $usage_ref01_match_dt0 = [];
+        $usage_ref01_match_dt0 = [
+            "id" => $usage_ref01_data["id"],
+        ];
         $usage_ref01_data_dt0_loaded = $usage_ref01_ent->load($usage_ref01_match_dt0, null);
-        $this->assertNotNull($usage_ref01_data_dt0_loaded);
+        $usage_ref01_data_dt0_load_result = Helpers::to_map(is_object($usage_ref01_data_dt0_loaded) && method_exists($usage_ref01_data_dt0_loaded, 'data_get') ? $usage_ref01_data_dt0_loaded->data_get() : $usage_ref01_data_dt0_loaded);
+        $this->assertNotNull($usage_ref01_data_dt0_load_result);
+        $this->assertEquals($usage_ref01_data_dt0_load_result["id"], $usage_ref01_data["id"]);
 
     }
 }

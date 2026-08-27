@@ -28,6 +28,11 @@ main: kit: entity: pricing: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "license"
       req: true
       short: "Per-field license: owned = free to cite with attribution; restricted = display only."
@@ -87,6 +92,11 @@ main: kit: entity: pricing: {
       type: "`$OBJECT`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "pricing"
   op: {

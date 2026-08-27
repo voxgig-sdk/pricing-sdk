@@ -22,6 +22,7 @@ type CompareLoadMatch struct {
 
 // CostGuide is the typed data model for the cost_guide entity.
 type CostGuide struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // CostGuideLoadMatch is the typed request payload for CostGuide.LoadTyped.
@@ -47,6 +48,7 @@ type DiscoverLoadMatch struct {
 
 // History is the typed data model for the history entity.
 type History struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // HistoryLoadMatch is the typed request payload for History.LoadTyped.
@@ -68,6 +70,7 @@ type Pricing struct {
 	Category *string `json:"category,omitempty"`
 	Discounts *map[string]any `json:"discounts,omitempty"`
 	HiddenCosts *[]any `json:"hiddenCosts,omitempty"`
+	Id *string `json:"id,omitempty"`
 	License map[string]any `json:"license"`
 	Links map[string]any `json:"links"`
 	Name *string `json:"name,omitempty"`
@@ -104,6 +107,7 @@ type TcoCreateData struct {
 
 // Usage is the typed data model for the usage entity.
 type Usage struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // UsageLoadMatch is the typed request payload for Usage.LoadTyped.

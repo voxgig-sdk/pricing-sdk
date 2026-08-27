@@ -41,9 +41,13 @@ class HistoryEntityTest < Minitest::Test
 
     # LOAD
     history_ref01_ent = client.History(nil)
-    history_ref01_match_dt0 = {}
+    history_ref01_match_dt0 = {
+      "id" => history_ref01_data["id"],
+    }
     history_ref01_data_dt0_loaded = history_ref01_ent.load(history_ref01_match_dt0, nil)
-    assert !history_ref01_data_dt0_loaded.nil?
+    history_ref01_data_dt0_load_result = Helpers.to_map(history_ref01_data_dt0_loaded.respond_to?(:data_get) ? history_ref01_data_dt0_loaded.data_get : history_ref01_data_dt0_loaded)
+    assert !history_ref01_data_dt0_load_result.nil?
+    assert_equal history_ref01_data_dt0_load_result["id"], history_ref01_data["id"]
 
   end
 end
