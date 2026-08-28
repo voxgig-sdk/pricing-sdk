@@ -13,8 +13,13 @@ class Compare
 end
 
 # Request payload for Compare#load.
-class CompareLoadMatch
-end
+#
+# @!attribute [rw] slug
+#   @return [String]
+CompareLoadMatch = Struct.new(
+  :slug,
+  keyword_init: true
+)
 
 # CostGuide entity data model.
 #
@@ -39,16 +44,46 @@ class Coverage
 end
 
 # Request payload for Coverage#load.
-class CoverageLoadMatch
-end
+#
+# @!attribute [rw] field
+#   @return [String, nil]
+#
+# @!attribute [rw] slug
+#   @return [String]
+CoverageLoadMatch = Struct.new(
+  :field,
+  :slug,
+  keyword_init: true
+)
 
 # Discover entity data model.
 class Discover
 end
 
 # Request payload for Discover#load.
-class DiscoverLoadMatch
-end
+#
+# @!attribute [rw] category
+#   @return [String, nil]
+#
+# @!attribute [rw] has_free_tier
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] max_price
+#   @return [Float, nil]
+#
+# @!attribute [rw] q
+#   @return [String, nil]
+DiscoverLoadMatch = Struct.new(
+  :category,
+  :has_free_tier,
+  :limit,
+  :max_price,
+  :q,
+  keyword_init: true
+)
 
 # History entity data model.
 #
@@ -149,8 +184,16 @@ Pricing = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] depth
+#   @return [String, nil]
+#
+# @!attribute [rw] field
+#   @return [String, nil]
 PricingLoadMatch = Struct.new(
   :id,
+  :depth,
+  :field,
   keyword_init: true
 )
 
@@ -209,8 +252,20 @@ Usage = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] input_token
+#   @return [Integer, nil]
+#
+# @!attribute [rw] model
+#   @return [String, nil]
+#
+# @!attribute [rw] output_token
+#   @return [Integer, nil]
 UsageLoadMatch = Struct.new(
   :id,
+  :input_token,
+  :model,
+  :output_token,
   keyword_init: true
 )
 

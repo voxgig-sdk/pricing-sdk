@@ -35,7 +35,7 @@ client = PricingSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Compare record (raises on error).
-  compare = client.Compare.load()
+  compare = client.Compare.load({ "slug" => "example_slug" })
   puts compare
 rescue => err
   warn "load failed: #{err}"
@@ -366,7 +366,7 @@ Create an instance: `compare = client.Compare`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Compare record (raises on error).
-compare = client.Compare.load()
+compare = client.Compare.load({ "slug" => "slug" })
 ```
 
 
@@ -408,7 +408,7 @@ Create an instance: `coverage = client.Coverage`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Coverage record (raises on error).
-coverage = client.Coverage.load()
+coverage = client.Coverage.load({ "slug" => "slug" })
 ```
 
 
@@ -561,6 +561,29 @@ Create an instance: `usage = client.Usage`
 # load returns the ENTITY — call data_get for the Usage record (raises on error).
 usage = client.Usage.load({ "id" => "usage_id" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

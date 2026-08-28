@@ -20,6 +20,7 @@ class Compare
 /** Request payload for Compare#load. */
 class CompareLoadMatch
 {
+    public string $slug;
 }
 
 /** CostGuide entity data model. */
@@ -42,6 +43,8 @@ class Coverage
 /** Request payload for Coverage#load. */
 class CoverageLoadMatch
 {
+    public ?string $field = null;
+    public string $slug;
 }
 
 /** Discover entity data model. */
@@ -52,6 +55,11 @@ class Discover
 /** Request payload for Discover#load. */
 class DiscoverLoadMatch
 {
+    public ?string $category = null;
+    public ?bool $has_free_tier = null;
+    public ?int $limit = null;
+    public ?float $max_price = null;
+    public ?string $q = null;
 }
 
 /** History entity data model. */
@@ -101,6 +109,8 @@ class Pricing
 class PricingLoadMatch
 {
     public string $id;
+    public ?string $depth = null;
+    public ?string $field = null;
 }
 
 /** Tco entity data model. */
@@ -131,5 +141,8 @@ class Usage
 class UsageLoadMatch
 {
     public string $id;
+    public ?int $input_token = null;
+    public ?string $model = null;
+    public ?int $output_token = null;
 }
 

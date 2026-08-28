@@ -21,7 +21,7 @@ class Compare(TypedDict):
 
 
 class CompareLoadMatch(TypedDict):
-    pass
+    slug: str
 
 
 class CostGuide(TypedDict, total=False):
@@ -36,16 +36,24 @@ class Coverage(TypedDict):
     pass
 
 
-class CoverageLoadMatch(TypedDict):
-    pass
+class CoverageLoadMatchRequired(TypedDict):
+    slug: str
+
+
+class CoverageLoadMatch(CoverageLoadMatchRequired, total=False):
+    field: str
 
 
 class Discover(TypedDict):
     pass
 
 
-class DiscoverLoadMatch(TypedDict):
-    pass
+class DiscoverLoadMatch(TypedDict, total=False):
+    category: str
+    has_free_tier: bool
+    limit: int
+    max_price: float
+    q: str
 
 
 class History(TypedDict, total=False):
@@ -86,8 +94,13 @@ class Pricing(PricingRequired, total=False):
     verification: dict
 
 
-class PricingLoadMatch(TypedDict):
+class PricingLoadMatchRequired(TypedDict):
     id: str
+
+
+class PricingLoadMatch(PricingLoadMatchRequired, total=False):
+    depth: str
+    field: str
 
 
 class TcoRequired(TypedDict):
@@ -114,5 +127,11 @@ class Usage(TypedDict, total=False):
     id: str
 
 
-class UsageLoadMatch(TypedDict):
+class UsageLoadMatchRequired(TypedDict):
     id: str
+
+
+class UsageLoadMatch(UsageLoadMatchRequired, total=False):
+    input_token: int
+    model: str
+    output_token: int

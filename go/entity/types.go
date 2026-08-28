@@ -18,6 +18,7 @@ type Compare struct {
 
 // CompareLoadMatch is the typed request payload for Compare.LoadTyped.
 type CompareLoadMatch struct {
+	Slug string `json:"slug"`
 }
 
 // CostGuide is the typed data model for the cost_guide entity.
@@ -36,6 +37,8 @@ type Coverage struct {
 
 // CoverageLoadMatch is the typed request payload for Coverage.LoadTyped.
 type CoverageLoadMatch struct {
+	Field *string `json:"field,omitempty"`
+	Slug string `json:"slug"`
 }
 
 // Discover is the typed data model for the discover entity.
@@ -44,6 +47,11 @@ type Discover struct {
 
 // DiscoverLoadMatch is the typed request payload for Discover.LoadTyped.
 type DiscoverLoadMatch struct {
+	Category *string `json:"category,omitempty"`
+	HasFreeTier *bool `json:"has_free_tier,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	MaxPrice *float64 `json:"max_price,omitempty"`
+	Q *string `json:"q,omitempty"`
 }
 
 // History is the typed data model for the history entity.
@@ -87,6 +95,8 @@ type Pricing struct {
 // PricingLoadMatch is the typed request payload for Pricing.LoadTyped.
 type PricingLoadMatch struct {
 	Id string `json:"id"`
+	Depth *string `json:"depth,omitempty"`
+	Field *string `json:"field,omitempty"`
 }
 
 // Tco is the typed data model for the tco entity.
@@ -113,6 +123,9 @@ type Usage struct {
 // UsageLoadMatch is the typed request payload for Usage.LoadTyped.
 type UsageLoadMatch struct {
 	Id string `json:"id"`
+	InputToken *int `json:"input_token,omitempty"`
+	Model *string `json:"model,omitempty"`
+	OutputToken *int `json:"output_token,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

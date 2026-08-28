@@ -36,7 +36,7 @@ $client = new PricingSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Compare record (throws on error).
-    $compare = $client->Compare()->load();
+    $compare = $client->Compare()->load(["slug" => "example_slug"]);
     print_r($compare);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -376,7 +376,7 @@ Create an instance: `$compare = $client->Compare();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Compare record (throws on error).
-$compare = $client->Compare()->load();
+$compare = $client->Compare()->load(["slug" => "slug"]);
 ```
 
 
@@ -418,7 +418,7 @@ Create an instance: `$coverage = $client->Coverage();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Coverage record (throws on error).
-$coverage = $client->Coverage()->load();
+$coverage = $client->Coverage()->load(["slug" => "slug"]);
 ```
 
 
@@ -571,6 +571,29 @@ Create an instance: `$usage = $client->Usage();`
 // load() returns the ENTITY — call data_get() for the Usage record (throws on error).
 $usage = $client->Usage()->load(["id" => "usage_id"]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

@@ -9,6 +9,7 @@ export interface Compare {
 }
 
 export interface CompareLoadMatch {
+  slug: string
 }
 
 export interface CostGuide {
@@ -23,12 +24,19 @@ export interface Coverage {
 }
 
 export interface CoverageLoadMatch {
+  field?: string
+  slug: string
 }
 
 export interface Discover {
 }
 
 export interface DiscoverLoadMatch {
+  category?: string
+  has_free_tier?: boolean
+  limit?: number
+  max_price?: number
+  q?: string
 }
 
 export interface History {
@@ -66,6 +74,8 @@ export interface Pricing {
 
 export interface PricingLoadMatch {
   id: string
+  depth?: string
+  field?: string
 }
 
 export interface Tco {
@@ -88,5 +98,8 @@ export interface Usage {
 
 export interface UsageLoadMatch {
   id: string
+  input_token?: number
+  model?: string
+  output_token?: number
 }
 

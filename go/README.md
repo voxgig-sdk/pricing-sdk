@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single compare — the value is the loaded record.
-    compare, err := client.Compare(nil).Load(nil, nil)
+    compare, err := client.Compare(nil).Load(map[string]any{"slug": "example_slug"}, nil)
     if err != nil {
         panic(err)
     }
@@ -385,7 +385,7 @@ Create an instance: `compare := client.Compare(nil)`
 #### Example: Load
 
 ```go
-compare, err := client.Compare(nil).Load(nil, nil)
+compare, err := client.Compare(nil).Load(map[string]any{"slug": "slug"}, nil)
 if err != nil {
     panic(err)
 }
@@ -433,7 +433,7 @@ Create an instance: `coverage := client.Coverage(nil)`
 #### Example: Load
 
 ```go
-coverage, err := client.Coverage(nil).Load(nil, nil)
+coverage, err := client.Coverage(nil).Load(map[string]any{"slug": "slug"}, nil)
 if err != nil {
     panic(err)
 }
@@ -610,6 +610,29 @@ if err != nil {
 }
 fmt.Println(usage) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

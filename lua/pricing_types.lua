@@ -9,6 +9,7 @@
 ---@class Compare
 
 ---@class CompareLoadMatch
+---@field slug string
 
 ---@class CostGuide
 ---@field id? string
@@ -19,10 +20,17 @@
 ---@class Coverage
 
 ---@class CoverageLoadMatch
+---@field field? string
+---@field slug string
 
 ---@class Discover
 
 ---@class DiscoverLoadMatch
+---@field category? string
+---@field has_free_tier? boolean
+---@field limit? number
+---@field max_price? number
+---@field q? string
 
 ---@class History
 ---@field id? string
@@ -54,6 +62,8 @@
 
 ---@class PricingLoadMatch
 ---@field id string
+---@field depth? string
+---@field field? string
 
 ---@class Tco
 ---@field billing? string
@@ -72,6 +82,9 @@
 
 ---@class UsageLoadMatch
 ---@field id string
+---@field input_token? number
+---@field model? string
+---@field output_token? number
 
 local M = {}
 
