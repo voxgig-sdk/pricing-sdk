@@ -65,10 +65,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/compare",
-								"parts": []any{
-									"api",
-									"v2",
-									"compare",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "compare",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -78,6 +84,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"compare",
 								},
 							},
 						},
@@ -93,6 +104,10 @@ func MakeConfig() map[string]any {
 						"name": "id",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "cost_guide",
 				"op": map[string]any{
@@ -116,15 +131,23 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/cost-guide/{slug}",
-								"parts": []any{
-									"api",
-									"v2",
-									"cost-guide",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"slug": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "cost-guide",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -135,6 +158,12 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"cost-guide",
+									"{id}",
 								},
 							},
 						},
@@ -175,10 +204,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/coverage",
-								"parts": []any{
-									"api",
-									"v2",
-									"coverage",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "coverage",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -189,6 +224,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"coverage",
 								},
 							},
 						},
@@ -245,10 +285,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/discover",
-								"parts": []any{
-									"api",
-									"v2",
-									"discover",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "discover",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -262,6 +308,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"discover",
 								},
 							},
 						},
@@ -277,6 +328,10 @@ func MakeConfig() map[string]any {
 						"name": "id",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "history",
 				"op": map[string]any{
@@ -300,15 +355,23 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/history/{slug}",
-								"parts": []any{
-									"api",
-									"v2",
-									"history",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"slug": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "history",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -319,6 +382,12 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"history",
+									"{id}",
 								},
 							},
 						},
@@ -341,14 +410,22 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/api/mcp",
-								"parts": []any{
-									"api",
-									"mcp",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "mcp",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"mcp",
 								},
 							},
 						},
@@ -417,6 +494,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "source",
 						"short": "The vendor URL the price was read from.",
 						"type": "`$STRING`",
@@ -433,6 +511,10 @@ func MakeConfig() map[string]any {
 						"name": "verification",
 						"type": "`$OBJECT`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "pricing",
 				"op": map[string]any{
@@ -471,15 +553,23 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/pricing/{slug}",
-								"parts": []any{
-									"api",
-									"v2",
-									"pricing",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"slug": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "pricing",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -492,6 +582,12 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"pricing",
+									"{id}",
 								},
 							},
 							map[string]any{
@@ -516,10 +612,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/pricing",
-								"parts": []any{
-									"api",
-									"v2",
-									"pricing",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "pricing",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -530,6 +632,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"pricing",
 								},
 							},
 						},
@@ -570,15 +677,26 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/api/v2/tco",
-								"parts": []any{
-									"api",
-									"v2",
-									"tco",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "tco",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"v2",
+									"tco",
 								},
 							},
 						},
@@ -594,6 +712,10 @@ func MakeConfig() map[string]any {
 						"name": "id",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "usage",
 				"op": map[string]any{
@@ -637,15 +759,23 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/v2/usage/{slug}",
-								"parts": []any{
-									"api",
-									"v2",
-									"usage",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"slug": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "v2",
+									},
+									map[string]any{
+										"lit": "usage",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -660,6 +790,12 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"api",
+									"v2",
+									"usage",
+									"{id}",
+								},
 							},
 						},
 					},
@@ -670,6 +806,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

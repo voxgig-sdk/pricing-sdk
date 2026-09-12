@@ -73,10 +73,16 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/compare",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "compare",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "compare",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -87,6 +93,11 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "compare",
+                  ],
                 },
               ],
             },
@@ -102,6 +113,10 @@ module PricingConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "cost_guide",
           "op" => {
             "load" => {
@@ -124,17 +139,25 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/cost-guide/{slug}",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "cost-guide",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "slug" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "cost-guide",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -144,6 +167,12 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "cost-guide",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -183,10 +212,16 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/coverage",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "coverage",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "coverage",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -198,6 +233,11 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "coverage",
+                  ],
                 },
               ],
             },
@@ -253,10 +293,16 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/discover",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "discover",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "discover",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -271,6 +317,11 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "discover",
+                  ],
                 },
               ],
             },
@@ -286,6 +337,10 @@ module PricingConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "history",
           "op" => {
             "load" => {
@@ -308,17 +363,25 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/history/{slug}",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "history",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "slug" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "history",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -328,6 +391,12 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "history",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -349,15 +418,23 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/api/mcp",
-                  "parts" => [
-                    "api",
-                    "mcp",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "mcp",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "mcp",
+                  ],
                 },
               ],
             },
@@ -425,6 +502,7 @@ module PricingConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "source",
               "short" => "The vendor URL the price was read from.",
               "type" => "`$STRING`",
@@ -442,6 +520,10 @@ module PricingConfig
               "type" => "`$OBJECT`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "pricing",
           "op" => {
             "load" => {
@@ -479,17 +561,25 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/pricing/{slug}",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "pricing",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "slug" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "pricing",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "depth",
@@ -501,6 +591,12 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "pricing",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {
@@ -524,10 +620,16 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/pricing",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "pricing",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "pricing",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -539,6 +641,11 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "pricing",
+                  ],
                 },
               ],
             },
@@ -578,16 +685,27 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/api/v2/tco",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "tco",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "tco",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "tco",
+                  ],
                 },
               ],
             },
@@ -603,6 +721,10 @@ module PricingConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "usage",
           "op" => {
             "load" => {
@@ -645,17 +767,25 @@ module PricingConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/v2/usage/{slug}",
-                  "parts" => [
-                    "api",
-                    "v2",
-                    "usage",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "slug" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "usage",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -668,6 +798,12 @@ module PricingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "v2",
+                    "usage",
+                    "{id}",
+                  ],
                 },
               ],
             },

@@ -1,6 +1,14 @@
 # Pricing SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -82,10 +90,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/compare",
-                "parts": [
-                  "api",
-                  "v2",
-                  "compare",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "compare",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -96,6 +110,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "compare",
+                ],
               },
             ],
           },
@@ -111,6 +130,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "cost_guide",
         "op": {
           "load": {
@@ -133,17 +156,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/cost-guide/{slug}",
-                "parts": [
-                  "api",
-                  "v2",
-                  "cost-guide",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "slug": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "cost-guide",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -153,6 +184,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "cost-guide",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -192,10 +229,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/coverage",
-                "parts": [
-                  "api",
-                  "v2",
-                  "coverage",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "coverage",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -207,6 +250,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "coverage",
+                ],
               },
             ],
           },
@@ -262,10 +310,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/discover",
-                "parts": [
-                  "api",
-                  "v2",
-                  "discover",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "discover",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -280,6 +334,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "discover",
+                ],
               },
             ],
           },
@@ -295,6 +354,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "history",
         "op": {
           "load": {
@@ -317,17 +380,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/history/{slug}",
-                "parts": [
-                  "api",
-                  "v2",
-                  "history",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "slug": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "history",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -337,6 +408,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "history",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -358,15 +435,23 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/mcp",
-                "parts": [
-                  "api",
-                  "mcp",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "mcp",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "mcp",
+                ],
               },
             ],
           },
@@ -434,6 +519,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "source",
             "short": "The vendor URL the price was read from.",
             "type": "`$STRING`",
@@ -451,6 +537,10 @@ def make_config():
             "type": "`$OBJECT`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "pricing",
         "op": {
           "load": {
@@ -488,17 +578,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/pricing/{slug}",
-                "parts": [
-                  "api",
-                  "v2",
-                  "pricing",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "slug": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "pricing",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "depth",
@@ -510,6 +608,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "pricing",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -533,10 +637,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/pricing",
-                "parts": [
-                  "api",
-                  "v2",
-                  "pricing",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "pricing",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -548,6 +658,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "pricing",
+                ],
               },
             ],
           },
@@ -587,16 +702,27 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/api/v2/tco",
-                "parts": [
-                  "api",
-                  "v2",
-                  "tco",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "tco",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "tco",
+                ],
               },
             ],
           },
@@ -612,6 +738,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "usage",
         "op": {
           "load": {
@@ -654,17 +784,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/v2/usage/{slug}",
-                "parts": [
-                  "api",
-                  "v2",
-                  "usage",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "slug": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "v2",
+                  },
+                  {
+                    "lit": "usage",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -677,6 +815,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "v2",
+                  "usage",
+                  "{id}",
+                ],
               },
             ],
           },

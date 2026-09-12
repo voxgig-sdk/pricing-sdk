@@ -52,10 +52,16 @@ main: kit: entity: discover: {
           }
           method: "GET"
           orig: "/api/v2/discover"
-          parts: [
-            "api"
-            "v2"
-            "discover"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "discover"
+            }
           ]
           select: {
             exist: [

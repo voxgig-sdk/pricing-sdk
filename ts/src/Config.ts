@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -112,10 +123,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/compare",
-              "parts": [
-                "api",
-                "v2",
-                "compare"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "compare"
+                }
               ],
               "select": {
                 "exist": [
@@ -125,7 +142,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "compare"
+              ]
             }
           ]
         }
@@ -141,6 +163,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "cost_guide",
       "op": {
         "load": {
@@ -163,17 +189,25 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/cost-guide/{slug}",
-              "parts": [
-                "api",
-                "v2",
-                "cost-guide",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "slug": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "cost-guide"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -182,7 +216,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "cost-guide",
+                "{id}"
+              ]
             }
           ]
         }
@@ -222,10 +262,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/coverage",
-              "parts": [
-                "api",
-                "v2",
-                "coverage"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "coverage"
+                }
               ],
               "select": {
                 "exist": [
@@ -236,7 +282,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "coverage"
+              ]
             }
           ]
         }
@@ -292,10 +343,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/discover",
-              "parts": [
-                "api",
-                "v2",
-                "discover"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "discover"
+                }
               ],
               "select": {
                 "exist": [
@@ -309,7 +366,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "discover"
+              ]
             }
           ]
         }
@@ -325,6 +387,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "history",
       "op": {
         "load": {
@@ -347,17 +413,25 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/history/{slug}",
-              "parts": [
-                "api",
-                "v2",
-                "history",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "slug": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "history"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -366,7 +440,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "history",
+                "{id}"
+              ]
             }
           ]
         }
@@ -388,15 +468,23 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/api/mcp",
-              "parts": [
-                "api",
-                "mcp"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "mcp"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "mcp"
+              ]
             }
           ]
         }
@@ -464,6 +552,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "source",
           "short": "The vendor URL the price was read from.",
           "type": "`$STRING`"
@@ -481,6 +570,10 @@ class Config {
           "type": "`$OBJECT`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "pricing",
       "op": {
         "load": {
@@ -518,17 +611,25 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/pricing/{slug}",
-              "parts": [
-                "api",
-                "v2",
-                "pricing",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "slug": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "pricing"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "depth",
@@ -539,7 +640,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "pricing",
+                "{id}"
+              ]
             },
             {
               "args": {
@@ -563,10 +670,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/pricing",
-              "parts": [
-                "api",
-                "v2",
-                "pricing"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "pricing"
+                }
               ],
               "select": {
                 "exist": [
@@ -577,7 +690,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "pricing"
+              ]
             }
           ]
         }
@@ -617,16 +735,27 @@ class Config {
               "kind": "http",
               "method": "POST",
               "orig": "/api/v2/tco",
-              "parts": [
-                "api",
-                "v2",
-                "tco"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "tco"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "tco"
+              ]
             }
           ]
         }
@@ -642,6 +771,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "usage",
       "op": {
         "load": {
@@ -684,17 +817,25 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/v2/usage/{slug}",
-              "parts": [
-                "api",
-                "v2",
-                "usage",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "slug": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "v2"
+                },
+                {
+                  "lit": "usage"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id",
@@ -706,7 +847,13 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "v2",
+                "usage",
+                "{id}"
+              ]
             }
           ]
         }
@@ -722,6 +869,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

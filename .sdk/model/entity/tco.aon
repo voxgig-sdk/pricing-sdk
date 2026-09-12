@@ -35,10 +35,16 @@ main: kit: entity: tco: {
         {
           method: "POST"
           orig: "/api/v2/tco"
-          parts: [
-            "api"
-            "v2"
-            "tco"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "tco"
+            }
           ]
           transform: {
             req: "`reqdata`"

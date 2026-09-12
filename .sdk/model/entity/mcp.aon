@@ -12,9 +12,13 @@ main: kit: entity: mcp: {
         {
           method: "POST"
           orig: "/api/mcp"
-          parts: [
-            "api"
-            "mcp"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "mcp"
+            }
           ]
           transform: {
             req: "`reqdata`"

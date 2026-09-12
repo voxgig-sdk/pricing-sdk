@@ -1,0 +1,80 @@
+export interface Compare {
+}
+export interface CompareLoadMatch {
+    slug: string;
+}
+export interface CostGuide {
+    id?: string;
+}
+export interface CostGuideLoadMatch {
+    id: string;
+}
+export interface Coverage {
+}
+export interface CoverageLoadMatch {
+    field?: string;
+    slug: string;
+}
+export interface Discover {
+}
+export interface DiscoverLoadMatch {
+    category?: string;
+    has_free_tier?: boolean;
+    limit?: number;
+    max_price?: number;
+    q?: string;
+}
+export interface History {
+    id?: string;
+}
+export interface HistoryLoadMatch {
+    id: string;
+}
+export interface Mcp {
+}
+export interface McpCreateData {
+}
+export interface Pricing {
+    attribution: string;
+    category?: string;
+    discounts?: Record<string, any>;
+    hiddenCosts?: any[];
+    id?: string;
+    license: Record<string, any>;
+    links: Record<string, any>;
+    name?: string;
+    positioning?: Record<string, any>;
+    priceRange?: Record<string, any>;
+    schemaVersion?: string;
+    slug?: string;
+    source?: string;
+    tiers?: any[];
+    verdict?: string;
+    verification?: Record<string, any>;
+}
+export interface PricingLoadMatch {
+    id: string;
+    depth?: string;
+    field?: string;
+}
+export interface Tco {
+    billing?: string;
+    seats?: number;
+    slug: string;
+    tier?: string;
+}
+export interface TcoCreateData {
+    billing?: string;
+    seats?: number;
+    slug: string;
+    tier?: string;
+}
+export interface Usage {
+    id?: string;
+}
+export interface UsageLoadMatch {
+    id: string;
+    input_token?: number;
+    model?: string;
+    output_token?: number;
+}

@@ -32,10 +32,16 @@ main: kit: entity: coverage: {
           }
           method: "GET"
           orig: "/api/v2/coverage"
-          parts: [
-            "api"
-            "v2"
-            "coverage"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "coverage"
+            }
           ]
           select: {
             exist: [
