@@ -105,7 +105,7 @@ local result, err = client:History():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pricing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pricing-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pricing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pricing-sdk/releases) |
 | Python | `voxgig-sdk-pricing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pricing-sdk/releases) |
 | PHP | `voxgig-sdk/pricing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pricing-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/pricing-sdk/go` | `go get github.com/voxgig-sdk/pricing-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:History():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { PricingSDK } from '@voxgig-sdk/pricing'
+import { PricingSDK } from '@voxgig-sdk/pricing-sdk'
 
 const client = new PricingSDK()
 
