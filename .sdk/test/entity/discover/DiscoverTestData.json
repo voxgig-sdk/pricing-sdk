@@ -16,5 +16,58 @@
     "discover": {
       "discover_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/v2/discover": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [
+          {
+            "example": "crm",
+            "in": "query",
+            "name": "category",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "maxPrice",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hasFreeTier",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Keyword match on name / slug / category",
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "results[] with slug, startingPrice, freeTier, links.page"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

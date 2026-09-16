@@ -30,6 +30,12 @@ main: kit: entity: coverage: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/coverage"
+            json: "{\"parameters\":[{\"example\":\"notion,figma\",\"in\":\"query\",\"name\":\"slugs\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"example\":\"tiers,hiddenCosts,discounts\",\"in\":\"query\",\"name\":\"fields\",\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"per-product per-field availability + license map\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/coverage"
           segments: [

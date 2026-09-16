@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Pricing SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class PricingFeatures
@@ -14,8 +17,14 @@ class PricingFeatures
         switch ($name) {
             case "base":
                 return new PricingBaseFeature();
+            case "ratelimit":
+                return new PricingRatelimitFeature();
+            case "retry":
+                return new PricingRetryFeature();
             case "test":
                 return new PricingTestFeature();
+            case "timeout":
+                return new PricingTimeoutFeature();
             default:
                 return new PricingBaseFeature();
         }
@@ -31,7 +40,10 @@ class PricingFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

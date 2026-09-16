@@ -16,5 +16,30 @@
     "history": {
       "history_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/v2/history/{slug}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [
+          {
+            "example": "notion",
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "priceStability, priceTrend, latestSnapshot, lastObservedChange, verification, and links.page to cite"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

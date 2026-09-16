@@ -58,6 +58,12 @@ main: kit: entity: usage: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/usage/{slug}"
+            json: "{\"parameters\":[{\"example\":\"openai\",\"in\":\"path\",\"name\":\"slug\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"inputTokens\",\"schema\":{\"type\":\"integer\"}},{\"in\":\"query\",\"name\":\"outputTokens\",\"schema\":{\"type\":\"integer\"}},{\"in\":\"query\",\"name\":\"model\",\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"per-model $/1M-token rate card + estimate for the given volume\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/usage/{slug}"
           rename: {

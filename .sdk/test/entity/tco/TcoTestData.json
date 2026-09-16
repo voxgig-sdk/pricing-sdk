@@ -3,21 +3,21 @@
     "tco": {
       "TCO00": {
         "billing": "s28",
-        "seats": "s29",
+        "seats": 41,
         "slug": "s2a",
         "tier": "s2b",
         "id": "TCO00"
       },
       "TCO01": {
         "billing": "s50",
-        "seats": "s51",
+        "seats": 81,
         "slug": "s52",
         "tier": "s53",
         "id": "TCO01"
       },
       "TCO02": {
         "billing": "s78",
-        "seats": "s79",
+        "seats": 121,
         "slug": "s7a",
         "tier": "s7b",
         "id": "TCO02"
@@ -28,9 +28,55 @@
     "tco": {
       "tco_ref01": {
         "billing": "sa0",
-        "seats": "sa1",
+        "seats": 161,
         "slug": "sa2",
         "tier": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/v2/tco": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing": {
+                    "enum": [
+                      "monthly",
+                      "annual"
+                    ],
+                    "type": "string"
+                  },
+                  "seats": {
+                    "type": "integer"
+                  },
+                  "slug": {
+                    "example": "notion",
+                    "type": "string"
+                  },
+                  "tier": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "slug"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "subscription (seat- and annual-aware) + hiddenCosts line items + positioning + links"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

@@ -33,6 +33,12 @@ main: kit: entity: tco: {
       name: "create"
       points: [
         {
+          contract: {
+            id: "POST /api/v2/tco"
+            json: "{\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"billing\":{\"enum\":[\"monthly\",\"annual\"],\"type\":\"string\"},\"seats\":{\"type\":\"integer\"},\"slug\":{\"example\":\"notion\",\"type\":\"string\"},\"tier\":{\"type\":\"string\"}},\"required\":[\"slug\"],\"type\":\"object\"}}}},\"responses\":{\"200\":{\"description\":\"subscription (seat- and annual-aware) + hiddenCosts line items + positioning + links\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/api/v2/tco"
           segments: [

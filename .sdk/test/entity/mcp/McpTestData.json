@@ -16,5 +16,20 @@
     "mcp": {
       "mcp_ref01": {}
     }
+  },
+  "requests": {
+    "POST /api/mcp": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "JSON-RPC 2.0 response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

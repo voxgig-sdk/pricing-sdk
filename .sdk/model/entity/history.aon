@@ -35,6 +35,12 @@ main: kit: entity: history: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/history/{slug}"
+            json: "{\"parameters\":[{\"example\":\"notion\",\"in\":\"path\",\"name\":\"slug\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"priceStability, priceTrend, latestSnapshot, lastObservedChange, verification, and links.page to cite\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/history/{slug}"
           rename: {

@@ -35,6 +35,12 @@ main: kit: entity: cost_guide: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/cost-guide/{slug}"
+            json: "{\"parameters\":[{\"example\":\"kling-ai\",\"in\":\"path\",\"name\":\"slug\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"quickAnswer, keyCosts, transparency, discountPrograms, negotiation (tactics, timing, negotiable vs fixed, email generator URL), snapshot, verification, and links.guide to cite\"},\"404\":{\"description\":\"No cost guide published for this product yet\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/cost-guide/{slug}"
           rename: {

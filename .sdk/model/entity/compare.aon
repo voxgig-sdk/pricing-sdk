@@ -22,6 +22,12 @@ main: kit: entity: compare: {
               }
             ]
           }
+          contract: {
+            id: "GET /api/v2/compare"
+            json: "{\"parameters\":[{\"example\":\"notion,figma\",\"in\":\"query\",\"name\":\"slugs\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"products[] (full records, each with links.page to cite) + a compact comparison matrix carrying each page URL\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/v2/compare"
           segments: [

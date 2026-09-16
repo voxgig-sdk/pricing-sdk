@@ -1,12 +1,18 @@
 # Pricing SDK feature factory
 
 from pricing_sdk.feature.base_feature import PricingBaseFeature
+from pricing_sdk.feature.ratelimit_feature import PricingRatelimitFeature
+from pricing_sdk.feature.retry_feature import PricingRetryFeature
 from pricing_sdk.feature.test_feature import PricingTestFeature
+from pricing_sdk.feature.timeout_feature import PricingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: PricingBaseFeature(),
+    "ratelimit": lambda: PricingRatelimitFeature(),
+    "retry": lambda: PricingRetryFeature(),
     "test": lambda: PricingTestFeature(),
+    "timeout": lambda: PricingTimeoutFeature(),
 }
 
 

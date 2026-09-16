@@ -16,5 +16,38 @@
     "coverage": {
       "coverage_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/v2/coverage": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [
+          {
+            "example": "notion,figma",
+            "in": "query",
+            "name": "slugs",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "example": "tiers,hiddenCosts,discounts",
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "per-product per-field availability + license map"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

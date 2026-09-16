@@ -77,5 +77,228 @@
         "verification": {}
       }
     }
+  },
+  "requests": {
+    "GET /api/v2/pricing/{slug}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [
+          {
+            "example": "notion",
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "summary = numbers, ranges, sources; full = adds per-tier features, plan advice, expert take, quick answer",
+            "in": "query",
+            "name": "depth",
+            "schema": {
+              "enum": [
+                "summary",
+                "full"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Narrow the payload to these data fields; the citation envelope (links, attribution, license) is always kept",
+            "example": "tiers,hiddenCosts,discounts",
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "description": "Carried by every record so the source and reuse terms travel with the data.",
+                      "properties": {
+                        "attribution": {
+                          "description": "Ready-to-paste Markdown attribution with both links already embedded (brand -> links.home, \"{product} pricing\" -> links.page). If you are not building the citation yourself, output this string verbatim.",
+                          "type": "string"
+                        },
+                        "license": {
+                          "additionalProperties": {
+                            "enum": [
+                              "owned",
+                              "restricted"
+                            ],
+                            "type": "string"
+                          },
+                          "description": "Per-field license: owned = free to cite with attribution; restricted = display only.",
+                          "type": "object"
+                        },
+                        "links": {
+                          "description": "Citation links on every record. Cite page when you display the data.",
+                          "properties": {
+                            "alternatives": {
+                              "format": "uri",
+                              "type": "string"
+                            },
+                            "home": {
+                              "description": "The ComparEdge homepage. Anchor this link with the brand word \"ComparEdge\".",
+                              "example": "https://comparedge.com",
+                              "format": "uri",
+                              "type": "string"
+                            },
+                            "page": {
+                              "description": "The specific ComparEdge source page. Anchor this link with the product keyword, e.g. \"Notion pricing\" — not the brand.",
+                              "example": "https://comparedge.com/tools/notion/pricing",
+                              "format": "uri",
+                              "type": "string"
+                            },
+                            "vendor": {
+                              "description": "Tracked redirect to the vendor pricing page.",
+                              "example": "https://comparedge.com/go/notion?src=api_v2",
+                              "format": "uri",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "page",
+                            "home"
+                          ],
+                          "type": "object"
+                        },
+                        "schemaVersion": {
+                          "example": "2.0.0",
+                          "type": "string"
+                        },
+                        "source": {
+                          "description": "The vendor URL the price was read from.",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "verification": {
+                          "properties": {
+                            "confidence": {
+                              "type": "number"
+                            },
+                            "source": {
+                              "type": "string"
+                            },
+                            "verifiedAt": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "links",
+                        "attribution",
+                        "license"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "properties": {
+                        "category": {
+                          "type": "string"
+                        },
+                        "discounts": {
+                          "description": "Per-tier annual savings + best available.",
+                          "type": "object"
+                        },
+                        "hiddenCosts": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "positioning": {
+                          "description": "Starting price vs category median/min/max + sample size.",
+                          "type": "object"
+                        },
+                        "priceRange": {
+                          "properties": {
+                            "display": {
+                              "type": "string"
+                            },
+                            "max": {
+                              "type": "number"
+                            },
+                            "min": {
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "slug": {
+                          "type": "string"
+                        },
+                        "tiers": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "verdict": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Full pricing record. Carries links.page (the ComparEdge source page you must cite when you display this data) and links.vendor (tracked /go/ redirect to the vendor), plus tiers with features, priceRange, discounts, hiddenCosts, capabilities, verdict, planAdvice, positioning, verification, and a per-field license map."
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /api/v2/pricing": {
+      "provenance": "operation-contract",
+      "contract": {
+        "parameters": [
+          {
+            "example": "notion,figma,slack",
+            "in": "query",
+            "name": "slugs",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "depth",
+            "schema": {
+              "enum": [
+                "summary",
+                "full"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "count + records[] (each carries links.page to cite) + notFound[]"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
