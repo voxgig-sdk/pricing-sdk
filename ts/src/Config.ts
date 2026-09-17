@@ -127,33 +127,33 @@ class Config {
 
     entity: {
       
-      compare: {
-      },
-
-      cost_guide: {
-      },
-
-      coverage: {
-      },
-
-      discover: {
-      },
-
-      history: {
-      },
-
-      mcp: {
-      },
-
-      pricing: {
-      },
-
-      tco: {
-      },
-
-      usage: {
-      },
-
+        compare: {
+        },
+  
+        cost_guide: {
+        },
+  
+        coverage: {
+        },
+  
+        discover: {
+        },
+  
+        history: {
+        },
+  
+        mcp: {
+        },
+  
+        pricing: {
+        },
+  
+        tco: {
+        },
+  
+        usage: {
+        },
+  
     }
   }
 
